@@ -83,6 +83,12 @@ $(document).ready(function() {
 		source: substringMatcher(schools)
 	});
 
+	$("#schoolInput").on("focus", function() {
+		$("html, body").animate({
+        	scrollTop: $("#schoolInput").offset().top - 40
+        }, 500);
+	});
+
 	// On blur validate the email very loosely. Has to be outside of Foundation Abide because of issue with type=email inputs
 	$("#emailInput").on("blur", function() {
 		var email = $("#emailInput").val();
@@ -921,6 +927,8 @@ var schools = [
 "Young Women's Leadership School, Queens",
 
 "Professional Children's School",
-"Frank Sinatra School of the Arts"
+"Frank Sinatra School of the Arts",
+"The Pingry School",
+"Bergenfield High School"
 ];
 
