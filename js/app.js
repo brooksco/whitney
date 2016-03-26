@@ -9,7 +9,6 @@ var refAcronym = new Firebase("https://whitney.firebaseio.com/acronyms");
 var schoolAcronyms = {};
 
 refAcronym.on("value", function(snapshot) {
-
 	// Clear current acronyms
 	schoolAcronyms = {};
 
@@ -85,8 +84,8 @@ $(document).ready(function() {
 
 	$("#schoolInput").on("focus", function() {
 		$("html, body").animate({
-        	scrollTop: $("#schoolInput").offset().top - 40
-        }, 500);
+			scrollTop: $("#schoolInput").offset().top - 40
+		}, 500);
 	});
 
 	// On blur validate the email very loosely. Has to be outside of Foundation Abide because of issue with type=email inputs
@@ -105,14 +104,24 @@ $(document).ready(function() {
 		var schoolInput = $("#schoolInput").val();
 
 		schoolInput = schoolInput.toUpperCase();
-		console.log(schoolInput);
 
 		var index = uppercaseSchools.indexOf(schoolInput);
+
+		// Go through and see if there are any partial matches
+		var matched = false;
+		var findMatches = substringMatcher(schools);
+		var result = findMatches(schoolInput, function(strs) {
+			// If there's only one match, store it because it's probably correct
+			if (strs.length === 1) {
+				matched = strs[0];
+			}
+		});
+		
 		// First check if it's just typed in different case
 		if (index != -1) {
 			console.log("New case");
 
-        	$("#schoolInput").val(schools[index]);
+			$("#schoolInput").val(schools[index]);
 			$("#schoolInput").attr("value", schools[index]);
 
 			// Then check if it's an acronym, but
@@ -121,6 +130,12 @@ $(document).ready(function() {
 
 			$("#schoolInput").val(schoolAcronyms[schoolInput]);
 			$("#schoolInput").attr("value", schoolAcronyms[schoolInput]);
+
+			// If we matched with a single suggested school, set it to that
+		} else if (matched !== false) {
+
+			$("#schoolInput").val(matched);
+			$("#schoolInput").attr(matched);
 
 		} else {
 			// Try it lowercase, though this is a little odd. Only in the case of lower case acronym...which would be weird probably?
@@ -940,6 +955,6 @@ var schools = [
 ];
 
 var uppercaseSchools = schools.map(function(value) {
-    return value.toUpperCase();
+	return value.toUpperCase();
 });
 
