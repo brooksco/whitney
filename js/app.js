@@ -107,20 +107,27 @@ $(document).ready(function() {
 		schoolInput = schoolInput.toUpperCase();
 		console.log(schoolInput);
 
-		if (schoolInput in schoolAcronyms) {
-			console.log(true);
-			console.log(schoolAcronyms[schoolInput]);
+		var index = uppercaseSchools.indexOf(schoolInput);
+		// First check if it's just typed in different case
+		if (index != -1) {
+			console.log("New case");
+
+        	$("#schoolInput").val(schools[index]);
+			$("#schoolInput").attr("value", schools[index]);
+
+			// Then check if it's an acronym, but
+		} else if (schoolInput in schoolAcronyms) {
+			console.log("Acronym");
 
 			$("#schoolInput").val(schoolAcronyms[schoolInput]);
 			$("#schoolInput").attr("value", schoolAcronyms[schoolInput]);
 
 		} else {
-			// Try it lowercase, though this is a little odd
+			// Try it lowercase, though this is a little odd. Only in the case of lower case acronym...which would be weird probably?
+			// Should do this differently since mixed case acronyms would still be broken.
 			schoolInput = schoolInput.toLowerCase();
 
 			if (schoolInput in schoolAcronyms) {
-				console.log(true);
-				console.log(schoolAcronyms[schoolInput]);
 
 				$("#schoolInput").val(schoolAcronyms[schoolInput]);
 				$("#schoolInput").attr("value", schoolAcronyms[schoolInput]);
@@ -932,4 +939,7 @@ var schools = [
 "Bergenfield High School"
 ];
 
+var uppercaseSchools = schools.map(function(value) {
+    return value.toUpperCase();
+});
 
