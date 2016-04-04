@@ -171,6 +171,40 @@
 </button>
 </div>
 
+<!-- Logs modal -->
+<div class="reveal full" id="logsModal" data-reveal data-close-on-click="true" data-v-offset="24">
+  <h2>Device Logs</h2>
+  <table id="logsTable" class="hover">
+    <thead>
+    <tr>
+      <th style="width: 7em;">Timestamp</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>School/Organization/Other</th>
+      <th>How did you hear about Open Studio for Teens?</th>
+      <th>Grade</th>
+      <th>How many times have you been to the Whitney?</th>
+      <th>How many times have you attended Open Studio?</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+  </table>
+
+  <div class="row">
+    <div class="small-12 columns">
+    <label>&nbsp;
+    <button id="clearLogs" class="alert button">Clear Logs</button>
+    </label>
+    </div>
+  </div>
+
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+</button>
+</div>
+
 <!-- Acronyms modal -->
 <div class="reveal large" id="acronymsModal" data-reveal data-close-on-click="true" data-v-offset="24">
   <h2>Acronyms</h2>
@@ -228,6 +262,8 @@
             <button id="login" class="button hollow small float-right" data-toggle="loginModal">Login</button>
             
             <button id="logout" class="button hollow alert small float-right admin-only hide">Logout</button>
+
+            <button id="logs" class="button hollow warning small float-right admin-only hide">Device Logs</button>
 
             <!-- <button class="button hollow success small admin-only hide">Export Excel File</button> -->
             <button id= "acronyms" class="button secondary hollow small float-right admin-only hide">Acronyms</button>

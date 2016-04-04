@@ -222,6 +222,62 @@ $(document).ready(function() {
 
 	});
 
+	// Handle showing device logs, very similar to full student list
+	$("#logs").on("click", function() {
+
+		$("#logsTable tbody").empty();
+
+		if (typeof(Storage) !== "undefined") {
+    		
+			for (i = 0; i < localStorage.length; i++)   {
+				// Get substring...
+				var sub = localStorage.key(i).substring(0, 10);
+
+				// If it's an openstudio entry...
+				if (sub == "openstudio") {
+					var entry = JSON.parse(localStorage.getItem(localStorage.key(i)));
+
+					// Time, first name, last name, email, school, hear about whitney, grade, times been to whitney, times been to open studio
+					$("#logsTable tbody").prepend("<tr><td>" + entry[0] + "</td><td>" + entry[1] + "</td><td>" + entry[2] + "</td><td>" + entry[3] + "</td><td>" + entry[4] + "</td><td>" + entry[5] + "</td><td>" + entry[6] + "</td><td>" + entry[7] + "</td><td>" + entry[8] + "</td></tr>");
+
+				}
+			}
+		}
+
+		$("#logsModal").foundation("open");
+	});
+
+	// Handle deleting logs
+	$("#clearLogs").on("click", function() {
+
+		$("#logsTable tbody").empty();
+
+		if (typeof(Storage) !== "undefined") {
+
+			var deleteArray = [];
+    		
+			for (i = 0; i < localStorage.length; i++)   {
+				// Get substring...
+				var sub = localStorage.key(i).substring(0, 10);
+
+				// If it's an openstudio entry...
+				if (sub == "openstudio") {
+					// Add the item to be cleared
+					deleteArray.push(localStorage.key(i));
+					// localStorage.removeItem(localStorage.key(i));
+				}
+			}
+
+			// Go through and delete everything that needs to be deleted. This has to come in a separate loop, because otherwise
+			// Localstorage.length shrinks as you delete items, screwing up the for loop
+			for (i = 0; i < deleteArray.length; i++) {
+				localStorage.removeItem(deleteArray[i]);
+			}
+
+			deleteArray = [];
+		}
+	});
+
 	// Handle deleting user
 	$("body").on("click", ".deleteUser", function() {
 		var user = $(this).data("key");
@@ -379,7 +435,7 @@ function processForm(e) {
 	var emailValid = emailValidator(email);
 
 	// Validate
-	if (firstName == '' || lastName == '' || email == '' || school == '' || hearAbout == '' || grade == '' || timesWhitney == '' || timesStudio == '' || !emailValid) {
+	if (firstName == '' || lastName == '' || email == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
 
 		console.log("Validation failed");
 		$("div[data-abide-error]").show();
@@ -392,6 +448,15 @@ function processForm(e) {
 		showLoader(false);
 
 	} else {
+
+		var userInfo = [time, firstName, lastName, email, school, hearAbout, grade, timesWhitney, timesStudio];
+		
+		// If localstorage is available...
+		if (typeof(Storage) !== "undefined") {
+			// Store the entry here in case we're having internet issues
+			localStorage.setItem("openstudio" + time, JSON.stringify(userInfo));
+		}
+
 		ref.push({
 			time: time,
 			firstName: firstName,
@@ -406,6 +471,7 @@ function processForm(e) {
 
 		// Push answers to google sheets
 		pushToGoogle(time);
+
 	}
 
 }
