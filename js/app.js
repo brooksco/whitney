@@ -155,8 +155,8 @@ $(document).ready(function() {
 	$("#loginForm").on("submit", function(e) {
 		e.preventDefault();
 
-		var loginEmail = $("input[name='loginEmail'").val();
-		var loginPassword = $("input[name='loginPassword'").val();
+		var loginEmail = $("input[name='loginEmail']").val();
+		var loginPassword = $("input[name='loginPassword']").val();
 
 		ref.authWithPassword({
 			email : loginEmail,
