@@ -437,20 +437,20 @@ window.onscroll = function (e) {
 function drawW() {
 	// w canvas variables
 	var canvas = document.getElementById("wCanvas");
-	var height = 70;
+	var height = 80;
 
 	var rightElement = document.getElementById("signInTitle");
 
-	var rect = rightElement.getBoundingClientRect();
-	var left = rect.left;
-	var width = left - 20;
-
 	var top  = window.pageYOffset || document.documentElement.scrollTop;
-	rect = rightElement.getBoundingClientRect();
-	right = rect.left;
-	width = right - 20;
+	var rect = rightElement.getBoundingClientRect();
+	var right = rect.left;
+	var width = right - 20;
 
-	canvas.width = width;
+	// Set to 2 for left alligned, 0 for centered and right probably or whatever looks good
+	var offsetX = 2;
+	var offsetY = 2;
+
+	canvas.width = (width + 10);
 
 	if (canvas.getContext) {
 		var ctx = canvas.getContext("2d");
@@ -458,15 +458,15 @@ function drawW() {
 		ctx.lineWidth = 2;
 
 		// If we're past the base of the w...
-		if (top >= height ) {
+		if (top >= height + offsetY ) {
 			// If we're within a range of the w...fade it out slowly...
-			if (top <= (height + 30)) {
-				var val = (height + 30) - top;
+			if (top <= (height + offsetY + 30)) {
+				var val = (height + offsetY + 30) - top;
 				ctx.globalAlpha = (val / 30);
 
 				ctx.beginPath();
-				ctx.moveTo(0, 0);
-				ctx.lineTo(width, 0);
+				ctx.moveTo(offsetX, offsetY);
+				ctx.lineTo(width + offsetX, offsetY);
 				ctx.stroke();
 			}
 
@@ -477,10 +477,26 @@ function drawW() {
 
 			ctx.beginPath();
 			ctx.moveTo(0, 0);
-			ctx.lineTo(width / 4, cHeight);
-			ctx.lineTo((2 * width) / 4, 0);
-			ctx.lineTo((3 * width) / 4, cHeight);
-			ctx.lineTo(width, 0);
+
+			// Left alligned w
+			ctx.moveTo(offsetX, offsetY);
+			ctx.lineTo(offsetX, cHeight + offsetY);
+			ctx.lineTo((2 * width) / 4 + offsetX, offsetY);
+			ctx.lineTo((2 * width) / 4 + offsetX, cHeight + offsetY);
+			ctx.lineTo(width + offsetX, offsetY);
+
+			// Center alligned w
+			// ctx.lineTo(width / 4 + offsetX, cHeight + offsetY);
+			// ctx.lineTo((2 * width) / 4 + offsetX, offsetY);
+			// ctx.lineTo((3 * width) / 4 + offsetX, cHeight + offsetY);
+			// ctx.lineTo(width + offsetX, offsetY);
+
+			// Right alligned w
+			// ctx.lineTo((2 * width) / 4 + offsetX, cHeight + offsetY);
+			// ctx.lineTo((2 * width) / 4 + offsetX, offsetY);
+			// ctx.lineTo(width + offsetX, cHeight + offsetY);
+			// ctx.lineTo(width + offsetX, offsetY);
+
 			ctx.stroke();
 		}
 
