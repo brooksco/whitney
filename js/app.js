@@ -437,7 +437,7 @@ window.onscroll = function (e) {
 function drawW() {
 	// w canvas variables
 	var canvas = document.getElementById("wCanvas");
-	var height = 80;
+	var height = 90;
 
 	var rightElement = document.getElementById("signInTitle");
 
