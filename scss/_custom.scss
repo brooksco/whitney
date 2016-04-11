@@ -56,21 +56,20 @@ footer {
     }
 }
 
-// #whitneyLogo {
-//   // -webkit-filter: invert(1);
-//   // filter: invert(1);
+#whitneyLogo {
+  // -webkit-filter: invert(1);
+  // filter: invert(1);
 
+	width: 17%;
+	// height: 2.3rem;
+    position: absolute;
+    top: .75rem;
+    left: .75rem;
 
-// 	width: 17%;
-// 	// height: 2.3rem;
-//     position: absolute;
-//     top: .75rem;
-//     left: .75rem;
-
-//     @include breakpoint(small only) {
-//     	display: none;
-//     }
-// }
+    @include breakpoint(small only) {
+    	display: none;
+    }
+}
 
 // Form styling
 

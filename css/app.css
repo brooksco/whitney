@@ -3719,6 +3719,15 @@ footer {
     #wCanvas {
       display: none; } }
 
+#whitneyLogo {
+  width: 17%;
+  position: absolute;
+  top: .75rem;
+  left: .75rem; }
+  @media screen and (min-width: 0em) and (max-width: 39.9375em) {
+    #whitneyLogo {
+      display: none; } }
+
 #whitneyForm {
   margin-top: 1em; }
 
