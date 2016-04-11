@@ -3689,9 +3689,9 @@ footer {
   display: block; }
   #banner h1 {
     font-size: 1.85rem;
-    height: 5.5rem;
     font-weight: 700;
     color: white;
+    height: 5.5rem;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -3707,12 +3707,11 @@ footer {
     /* column | row */ }
 
 #signInTitle {
+  font-weight: 700;
   padding-top: 1rem;
-  font-size: 1.75rem; }
+  font-size: 1.85rem; }
 
 #whitneyLogo {
-  -webkit-filter: invert(1);
-  filter: invert(1);
   width: 17%;
   position: absolute;
   top: .75rem;

@@ -25,10 +25,10 @@ footer {
 
   h1 {
     font-size: 1.85rem;
-    height: 5.5rem;
     font-weight: 700;
     color: white;
 
+    height: 5.5rem;
     display: flex;
     justify-content:center;
     align-content:center;
@@ -37,14 +37,16 @@ footer {
 }
 
 #signInTitle {
+  font-weight: 700;
   // padding-top: 1.5rem;
   padding-top: 1rem;
-	font-size: 1.75rem;
+	// font-size: 1.75rem;
+  font-size: 1.85rem;
 }
 
 #whitneyLogo {
-  -webkit-filter: invert(1);
-  filter: invert(1);
+  // -webkit-filter: invert(1);
+  // filter: invert(1);
 
 
 	width: 17%;
