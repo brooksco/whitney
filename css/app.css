@@ -3711,13 +3711,12 @@ footer {
   padding-top: 1rem;
   font-size: 1.85rem; }
 
-#whitneyLogo {
-  width: 17%;
-  position: absolute;
-  top: .75rem;
-  left: .75rem; }
+#wCanvas {
+  position: fixed;
+  left: 10px;
+  top: 10px; }
   @media screen and (min-width: 0em) and (max-width: 39.9375em) {
-    #whitneyLogo {
+    #wCanvas {
       display: none; } }
 
 #whitneyForm {

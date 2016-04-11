@@ -44,21 +44,33 @@ footer {
   font-size: 1.85rem;
 }
 
-#whitneyLogo {
-  // -webkit-filter: invert(1);
-  // filter: invert(1);
+#wCanvas {
+  // position: absolute;
+  // transition: opacity 200ms ease;
+  position: fixed;
+  left: 10px;
+  top: 10px;
 
-
-	width: 17%;
-	// height: 2.3rem;
-    position: absolute;
-    top: .75rem;
-    left: .75rem;
-
-    @include breakpoint(small only) {
-    	display: none;
+  @include breakpoint(small only) {
+      display: none;
     }
 }
+
+// #whitneyLogo {
+//   // -webkit-filter: invert(1);
+//   // filter: invert(1);
+
+
+// 	width: 17%;
+// 	// height: 2.3rem;
+//     position: absolute;
+//     top: .75rem;
+//     left: .75rem;
+
+//     @include breakpoint(small only) {
+//     	display: none;
+//     }
+// }
 
 // Form styling
 

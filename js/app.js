@@ -44,6 +44,10 @@ if (form.addEventListener) {
     form.attachEvent('onsubmit', processForm);            //Old IE
 }
 
+// Draw the w initially
+drawW();
+
+
 $(document).ready(function() {
 // Prefil stuff for dev'ing
 	// $("input[name='First name']").val("aa");
@@ -98,6 +102,7 @@ $(document).ready(function() {
 
 		}
 	});
+
 
 	// On blur go through and check for acronyms
 	$("#schoolInput").on("blur", function() {
@@ -228,7 +233,7 @@ $(document).ready(function() {
 		$("#logsTable tbody").empty();
 
 		if (typeof(Storage) !== "undefined") {
-    		
+
 			for (i = 0; i < localStorage.length; i++)   {
 				// Get substring...
 				var sub = localStorage.key(i).substring(0, 10);
@@ -255,7 +260,7 @@ $(document).ready(function() {
 		if (typeof(Storage) !== "undefined") {
 
 			var deleteArray = [];
-    		
+
 			for (i = 0; i < localStorage.length; i++)   {
 				// Get substring...
 				var sub = localStorage.key(i).substring(0, 10);
@@ -413,7 +418,75 @@ $(document).ready(function() {
 	});
 
 
-});
+}); // End ready
+
+
+// w drawing
+
+// On resize draw new w  
+window.onresize = function(event) {
+	drawW();
+};
+
+// On scroll draw new w  
+window.onscroll = function (e) {  
+	drawW();
+} 
+
+// Function for drawing the whitney w
+function drawW() {
+	// w canvas variables
+	var canvas = document.getElementById("wCanvas");
+	var height = 70;
+
+	var rightElement = document.getElementById("signInTitle");
+
+	var rect = rightElement.getBoundingClientRect();
+	var left = rect.left;
+	var width = left - 20;
+
+	var top  = window.pageYOffset || document.documentElement.scrollTop;
+	rect = rightElement.getBoundingClientRect();
+	right = rect.left;
+	width = right - 20;
+
+	canvas.width = width;
+
+	if (canvas.getContext) {
+		var ctx = canvas.getContext("2d");
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.lineWidth = 2;
+
+		// If we're past the base of the w...
+		if (top >= height ) {
+			// If we're within a range of the w...fade it out slowly...
+			if (top <= (height + 30)) {
+				var val = (height + 30) - top;
+				ctx.globalAlpha = (val / 30);
+
+				ctx.beginPath();
+				ctx.moveTo(0, 0);
+				ctx.lineTo(width, 0);
+				ctx.stroke();
+			}
+
+			// Otherwise draw the w...
+		} else {
+			var cHeight = height - top;
+			ctx.globalAlpha = 1;
+
+			ctx.beginPath();
+			ctx.moveTo(0, 0);
+			ctx.lineTo(width / 4, cHeight);
+			ctx.lineTo((2 * width) / 4, 0);
+			ctx.lineTo((3 * width) / 4, cHeight);
+			ctx.lineTo(width, 0);
+			ctx.stroke();
+		}
+
+	}
+} // End drawW
+
 
 // Process the form on submit
 function processForm(e) {
@@ -642,7 +715,7 @@ var substringMatcher = function(strs) {
 //                 }
 //                 // Grab and format a row from the table
 //                 function grabRow(i,row){
-                     
+
 //                     var $row = $(row);
 //                     //for some reason $cols = $row.find('td') || $row.find('th') won't work...
 //                     var $cols = $row.find('td'); 
@@ -667,10 +740,10 @@ var substringMatcher = function(strs) {
 //                 // var outputFile = 'export'
 //                 var outputFile = window.prompt("What do you want to name your output file (Note: This won't have any effect on Safari)") || 'export';
 //                 outputFile = outputFile.replace('.csv','') + '.csv'
-                 
+
 //                 // CSV
 //                 exportTableToCSV.apply(this, [$('#dvData > table'), outputFile]);
-                
+
 //                 // IF CSV, don't do event.preventDefault() or return false
 //                 // We actually need this to be a typical hyperlink
 //             });
