@@ -1194,7 +1194,8 @@ var schools = [
 "Professional Children's School",
 "Frank Sinatra School of the Arts",
 "The Pingry School",
-"Bergenfield High School"
+"Bergenfield High School",
+"Homeschool"
 ];
 
 var uppercaseSchools = schools.map(function(value) {
