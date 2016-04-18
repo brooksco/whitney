@@ -285,6 +285,8 @@ $(document).ready(function() {
 
 	// Handle deleting user
 	$("body").on("click", ".deleteUser", function() {
+		// $("#deleteModal").foundation("open");
+		
 		var user = $(this).data("key");
 
 		ref.child(user).set(null);
