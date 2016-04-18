@@ -156,7 +156,7 @@ $(document).ready(function() {
 
 	});
 
-	// Login handling
+	// Handle login
 	$("#loginForm").on("submit", function(e) {
 		e.preventDefault();
 
@@ -170,9 +170,11 @@ $(document).ready(function() {
 		}, function (error, authData) {
 			if (error) {
 				console.log("Login Failed!", error);
+				$("#loginError").show();
 
 			} else {
 				console.log("Authenticated successfully with payload:", authData);
+				$("#loginError").hide();
 
 				$("#login").addClass("hide");
 				$(".admin-only").removeClass("hide");
@@ -189,6 +191,80 @@ $(document).ready(function() {
 
 		$("#login").removeClass("hide");
 		$(".admin-only").addClass("hide");
+	});
+
+	// Handle reset password
+	$("#resetPassword").on("click", function() {
+		$("#resetModal").foundation("open");
+	});
+
+	// Handle sending reset
+	$("#resetSubmit").on("click", function(e) {
+		e.preventDefault();
+
+		var resetEmail = $("#resetEmail").val();
+
+		if (resetEmail != "") {
+			ref.resetPassword({
+				email: resetEmail
+			}, function(error) {
+				if (error) {
+					switch (error.code) {
+						case "INVALID_USER":
+						console.log("The specified user account does not exist.");
+						break;
+						default:
+						console.log("Error resetting password:", error);
+						// $("#resetModal").foundation("close");
+					}
+				} else {
+					console.log("Password reset email sent successfully!");
+					$("#resetModal").foundation("close");
+				}
+			});
+		}
+
+	});
+
+	// Handle change password
+	$("#changePassword").on("click", function() {
+		$("#changeModal").foundation("open");
+	});
+
+	// Handle sending change password
+	$("#changeSubmit").on("click", function(e) {
+		e.preventDefault();
+
+		var changeEmail = $("#changeEmail").val();
+		var oldPassword = $("#oldPassword").val();
+		var newPassword = $("#newPassword").val();
+
+		ref.changePassword({
+			email: changeEmail,
+			oldPassword: oldPassword,
+			newPassword: newPassword
+		}, function(error) {
+			if (error) {
+				switch (error.code) {
+					case "INVALID_PASSWORD":
+					console.log("The specified user account password is incorrect.");
+					break;
+					case "INVALID_USER":
+					console.log("The specified user account does not exist.");
+					break;
+					default:
+					console.log("Error changing password:", error);
+				}
+			} else {
+				console.log("User password changed successfully!");
+				$("#successModal").foundation("open");
+				setTimeout(function(){
+					$("#successModal").foundation("close");
+					window.scrollTo(0, 0);
+					location.reload();
+				}, 2000);
+			}
+		});
 	});
 
 	// Handle showing full student list

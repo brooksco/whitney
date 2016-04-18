@@ -125,6 +125,12 @@
   <h2>Admin Login</h2>
   <form id="loginForm">
 
+    <div id="loginError" data-abide-error="" class="alert callout">
+        <p>
+          <i class="fi-alert"></i>Incorrect email or password.
+        </p>
+      </div>
+
     <label>Email
       <input type="email" name="loginEmail" required>
     </label>
@@ -134,7 +140,53 @@
     </label>
 
     <input id="loginSubmit" type="submit" class="button" value="Login">
+
+    <button id="resetPassword" class="passwordButton">Forgot your password?</button>
+    <button id="changePassword" class="passwordButton">Change password</button>
   </form>
+
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<!-- Reset password modal -->
+<div class="reveal" id="resetModal" data-reveal data-close-on-click="true">
+  <h2>Reset Password</h2>
+  <form id="resetForm">
+
+    <label>Email
+      <input id="resetEmail" type="email" name="resetEmail" required>
+    </label>
+
+    <input id="resetSubmit" type="submit" class="button" value="Send Reset Instructions">
+  </form>
+
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<!-- Change password modal -->
+<div class="reveal" id="changeModal" data-reveal data-close-on-click="true">
+  <h2>Change Password</h2>
+  <form id="changeForm">
+
+    <label>Account email
+      <input id="changeEmail" type="email" name="resetEmail" required>
+    </label>
+
+    <label>Old password
+      <input id="oldPassword" type="password" name="oldPassword" required>
+    </label>
+
+    <label>New password
+      <input id="newPassword" type="password" name="newPassword" required>
+    </label>
+
+    <input id="changeSubmit" type="submit" class="button" value="Change Password">
+  </form>
+
 
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
@@ -269,6 +321,16 @@
 <!-- Thanks modal -->
 <div class="reveal small" id="thanksModal" data-reveal data-close-on-click="true">
   <h2>Thanks!</h2>
+  <p>You're good to go.</p>
+
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<!-- Success modal -->
+<div class="reveal small" id="successModal" data-reveal data-close-on-click="true">
+  <h2>Success!</h2>
   <p>You're good to go.</p>
 
   <button class="close-button" data-close aria-label="Close reveal" type="button">

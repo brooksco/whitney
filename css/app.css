@@ -3739,6 +3739,21 @@ footer {
 .fieldset {
   padding: .5rem 1.25rem; }
 
+#loginSubmit {
+  margin-top: 1em;
+  width: 6em; }
+
+#loginError {
+  display: none; }
+
+.passwordButton {
+  float: right;
+  margin-left: 1em;
+  color: #2199e8;
+  font-size: .9em; }
+  .passwordButton:hover {
+    opacity: .75; }
+
 #listTable, #logsTable {
   font-size: .8em; }
 
