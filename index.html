@@ -196,6 +196,15 @@
 <!-- Student modal -->
 <div class="reveal full" id="listModal" data-reveal data-close-on-click="true" data-v-offset="24">
   <h2>Student List</h2>
+
+  <!-- <a download="data.xls" href="#" onclick="return ExcellentExport.excel(this, 'listTable', 'Sheet 1');">Export to Excel</a> -->
+  <a class="export button small hollow success" download="data.csv" href="#" onclick="
+    $('.deleteUserTd').remove();
+    $('#exportAsterisk').css('display', 'inline-block');
+    return ExcellentExport.csv(this, 'listTable');
+  ">Export to CSV</a>
+  <label id="exportAsterisk">*All delete buttons temporarily removed for cleaner exporting</label>
+
   <table id="listTable" class="hover">
     <thead>
       <tr>
@@ -364,6 +373,7 @@
 <script src="bower_components/what-input/what-input.js"></script>
 <script src="bower_components/foundation-sites/dist/foundation.js"></script>
 <script src="js/vendor/typeahead.bundle.min.js"></script>
+<script src="js/excellentexport.min.js"></script>
 <script src="js/app.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -271,6 +271,7 @@ $(document).ready(function() {
 	$("#list").on("click", function() {
 
 		$("#listTable tbody").empty();
+		$("#exportAsterisk").hide();
 
 		ref.once("value", function(snapshot) {
 			// ref.orderByChild("time").on("value", function(snapshot) {
@@ -293,7 +294,7 @@ $(document).ready(function() {
 
 						var date = time.substr(0, time.indexOf(' '));
 
-						$("#listTable tbody").prepend("<tr><td>" + time + "</td><td>" + firstName + "</td><td>" + lastName + "</td><td>" + email + "</td><td>" + school + "</td><td>" + hearAbout + "</td><td>" + grade + "</td><td>" + timesWhitney + "</td><td>" + timesStudio + "</td><td><button class='alert button small deleteUser' data-key='" + key + "'>Delete</button></td></tr>");
+						$("#listTable tbody").prepend("<tr><td>" + time + "</td><td>" + firstName + "</td><td>" + lastName + "</td><td>" + email + "</td><td>" + school + "</td><td>" + hearAbout + "</td><td>" + grade + "</td><td>" + timesWhitney + "</td><td>" + timesStudio + "</td><td class='deleteUserTd'><button class='alert button small deleteUser' data-key='" + key + "'>Delete</button></td></tr>");
 
 					}
 				}
@@ -415,7 +416,7 @@ $(document).ready(function() {
 				}
 			}
 
-			console.log("Tallying up");
+			// console.log("Tallying up");
 			for (var key in tally) {
 				if (tally.hasOwnProperty(key)) {
 
@@ -483,7 +484,7 @@ $(document).ready(function() {
 		var full = $("#full").val();
 
 		if (short == '' || full == '') {
-			console.log("nope");
+			console.log("Nope");
 
 		} else {
 

@@ -3757,6 +3757,11 @@ footer {
 #listTable, #logsTable {
   font-size: .8em; }
 
+#exportAsterisk {
+  display: none;
+  margin-bottom: 1em;
+  vertical-align: middle; }
+
 .reveal {
   overflow-y: scroll;
   /* has to be scroll, not auto */
