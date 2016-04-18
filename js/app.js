@@ -217,7 +217,7 @@ $(document).ready(function() {
 
 						var date = time.substr(0, time.indexOf(' '));
 
-						$("#listTable tbody").prepend("<tr><td>" + time + "</td><td>" + firstName + "</td><td>" + lastName + "</td><td>" + email + "</td><td>" + school + "</td><td>" + hearAbout + "</td><td>" + grade + "</td><td>" + timesWhitney + "</td><td>" + timesStudio + "</td><td><button class='alert button deleteUser' data-key='" + key + "'>Delete</button></td></tr>");
+						$("#listTable tbody").prepend("<tr><td>" + time + "</td><td>" + firstName + "</td><td>" + lastName + "</td><td>" + email + "</td><td>" + school + "</td><td>" + hearAbout + "</td><td>" + grade + "</td><td>" + timesWhitney + "</td><td>" + timesStudio + "</td><td><button class='alert button small deleteUser' data-key='" + key + "'>Delete</button></td></tr>");
 
 					}
 				}
@@ -374,7 +374,7 @@ $(document).ready(function() {
 						var short = data[key]["short"];
 						var full = data[key]["full"];
 
-						$("#acronymsTable tbody").append("<tr><td>" + short + "</td><td>" + full + "</td><td><button class='alert button deleteAcronym' data-short='" + short + "'>Delete</button></td></tr>");
+						$("#acronymsTable tbody").append("<tr><td>" + short + "</td><td>" + full + "</td><td><button class='alert button small deleteAcronym' data-short='" + short + "'>Delete</button></td></tr>");
 
 					}
 				}
@@ -411,7 +411,7 @@ $(document).ready(function() {
 			$("#short").val("");
 			$("#full").val("");
 
-			$("#acronymsTable tbody").append("<tr><td>" + short + "</td><td>" + full + "</td><td><button class='alert button deleteAcronym' data-short='" + short + "'>Delete</button></td></tr>");
+			$("#acronymsTable tbody").append("<tr><td>" + short + "</td><td>" + full + "</td><td><button class='alert button small deleteAcronym' data-short='" + short + "'>Delete</button></td></tr>");
 
 		}
 
