@@ -202,7 +202,7 @@ $(document).ready(function() {
 
 				for (var key in data) {
 
-					console.log(key);
+					// console.log(key);
 
 					if (data.hasOwnProperty(key)) {
 						var time = data[key]["time"];
@@ -285,12 +285,13 @@ $(document).ready(function() {
 
 	// Handle deleting user
 	$("body").on("click", ".deleteUser", function() {
-		// $("#deleteModal").foundation("open");
-		
 		var user = $(this).data("key");
 
-		ref.child(user).set(null);
-		$(this).parents("tr").remove();
+		if (confirm("Are you sure you want to delete this entry?")) {
+			ref.child(user).set(null);
+    		$(this).parents("tr").remove();
+		}
+
 	});
 
 	// Handle showing stats
@@ -340,9 +341,9 @@ $(document).ready(function() {
 				if (tally.hasOwnProperty(key)) {
 
 					for (var school in tally[key]) {
-						console.log(key);
-						console.log(school);
-						console.log(tally[key][school]);
+						// console.log(key);
+						// console.log(school);
+						// console.log(tally[key][school]);
 
 						$("#statsTable tbody").prepend("<tr><td>" + key + "</td><td>" + school + "</td><td>" + tally[key][school] + "</td></tr>");
 
@@ -351,8 +352,8 @@ $(document).ready(function() {
 				}
 			}
 
-			console.log("Tally");
-			console.log(tally);
+			// console.log("Tally");
+			// console.log(tally);
 
 			$("#statsModal").foundation("open");
 
@@ -390,8 +391,11 @@ $(document).ready(function() {
 	$("body").on("click", ".deleteAcronym", function() {
 		var acronym = $(this).data("short");
 
-		refAcronym.child(acronym).set(null);
-		$(this).parents("tr").remove();
+		if (confirm("Are you sure you want to delete this acronym?")) {
+			refAcronym.child(acronym).set(null);
+			$(this).parents("tr").remove();
+		}
+
 	});
 
 	// Handle adding acronym

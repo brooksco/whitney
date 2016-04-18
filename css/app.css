@@ -3754,7 +3754,7 @@ footer {
   width: 100%; }
 
 #addAcronym {
-  margin-top: 24px; }
+  margin-bottom: 2.5em; }
 
 .deleteUser, .deleteAcronym {
   float: right;
