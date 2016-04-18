@@ -3753,8 +3753,16 @@ footer {
 #acronymsTable, #statsTable {
   width: 100%; }
 
+#addAcronymContainer {
+  margin-top: 1em;
+  border: 1px solid #f1f1f1;
+  border-bottom: none;
+  padding: 1em; }
+  #addAcronymContainer .columns {
+    padding-left: 0; }
+
 #addAcronym {
-  margin-bottom: 2.5em; }
+  margin-top: 24px; }
 
 .deleteUser, .deleteAcronym {
   float: right;

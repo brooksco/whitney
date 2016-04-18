@@ -255,13 +255,14 @@ $(document).ready(function() {
 	// Handle deleting logs
 	$("#clearLogs").on("click", function() {
 
-		$("#logsTable tbody").empty();
+		if (confirm("Are you sure you want clear the logs?")) {
+			$("#logsTable tbody").empty();
 
-		if (typeof(Storage) !== "undefined") {
+			if (typeof(Storage) !== "undefined") {
 
-			var deleteArray = [];
+				var deleteArray = [];
 
-			for (i = 0; i < localStorage.length; i++)   {
+				for (i = 0; i < localStorage.length; i++)   {
 				// Get substring...
 				var sub = localStorage.key(i).substring(0, 10);
 
@@ -281,7 +282,9 @@ $(document).ready(function() {
 
 			deleteArray = [];
 		}
-	});
+	}
+
+});
 
 	// Handle deleting user
 	$("body").on("click", ".deleteUser", function() {
@@ -289,7 +292,7 @@ $(document).ready(function() {
 
 		if (confirm("Are you sure you want to delete this entry?")) {
 			ref.child(user).set(null);
-    		$(this).parents("tr").remove();
+			$(this).parents("tr").remove();
 		}
 
 	});
@@ -1197,6 +1200,7 @@ var schools = [
 "Young Women's Leadership School, Astoria",
 "Young Women's Leadership School, Queens",
 
+"Union Square Academy for Health Sciences",
 "Professional Children's School",
 "Frank Sinatra School of the Arts",
 "The Pingry School",

@@ -1,12 +1,12 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Studio for Teens Sign in Sheet</title>
-    <link rel="stylesheet" href="css/app.css">
-    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Studio for Teens Sign in Sheet</title>
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 </head>
 <body>
 
@@ -18,105 +18,105 @@
   </div>
 </div> -->
 
-    <div class="row">
-        <div class="large-6 medium-8 small-centered columns">
-            <canvas id="wCanvas" width="300" height="450">
-              <img id="whitneyLogo" src="img/weirdw.png">
-            </canvas>
-            <!-- <h1 id="signInTitle">Open Studio for Teens Sign in Sheet</h1> -->
-            <h1 id="signInTitle">OPEN STUDIO FOR TEENS</h1>
-            <!-- <h1 id="signInTitle"><strong>TEEN EVENT: CITIZENFOUR</strong></h1> -->
-        </div>
-    </div>
+<div class="row">
+  <div class="large-6 medium-8 small-centered columns">
+    <canvas id="wCanvas" width="300" height="450">
+      <img id="whitneyLogo" src="img/weirdw.png">
+    </canvas>
+    <!-- <h1 id="signInTitle">Open Studio for Teens Sign in Sheet</h1> -->
+    <h1 id="signInTitle">OPEN STUDIO FOR TEENS</h1>
+    <!-- <h1 id="signInTitle"><strong>TEEN EVENT: CITIZENFOUR</strong></h1> -->
+  </div>
+</div>
 
 
 <div class="row">
   <div class="large-6 medium-8 small-centered columns">
 
     <form id="whitneyForm" data-abide novalidate>
-        <label>First name*
-            <input type="text" name="First name" required>
-            <!-- <span class="form-error">Required.</span> -->
-        </label>
+      <label>First name*
+        <input type="text" name="First name" required>
+        <!-- <span class="form-error">Required.</span> -->
+      </label>
 
-        <label>Last name*
-            <input type="text" name="Last name" required>
-            <!-- <span class="form-error">Required.</span> -->
-        </label>
+      <label>Last name*
+        <input type="text" name="Last name" required>
+        <!-- <span class="form-error">Required.</span> -->
+      </label>
 
-        <label id="emailLabel">Email*
-            <input type="email" name="Email" id="emailInput">
-            <!-- <span class="form-error">Required.</span> -->
-        </label>
+      <label id="emailLabel">Email*
+        <input type="email" name="Email" id="emailInput">
+        <!-- <span class="form-error">Required.</span> -->
+      </label>
 
-        <fieldset class="fieldset">
+      <fieldset class="fieldset">
         <legend>How did you hear about Open Studio for Teens?</legend>
         <!-- <legend>How did you hear about this event?</legend> -->
-            <input type="radio" name="How did you hear about Open Studio for Teens?" value="friend" id="hearAboutFriend" required><label for="hearAboutFriend">Friend</label>
-            <br>
-            <input type="radio" name="How did you hear about Open Studio for Teens?" value="teacher/school" id="hearAboutTeacherSchool"><label for="hearAboutTeacherSchool">Teacher/School</label>
-            <br>
-            <input type="radio" name="How did you hear about Open Studio for Teens?" value="family/mentor" id="hearAboutFamilyMentor"><label for="hearAboutFamilyMentor">Family/Mentor</label>
-            <br>
-            <input type="radio" name="How did you hear about Open Studio for Teens?" value="website or email" id="hearAboutWebsiteEmail"><label for="hearAboutWebsiteEmail">Website or email</label>
-        </fieldset>
+        <input type="radio" name="How did you hear about Open Studio for Teens?" value="friend" id="hearAboutFriend" required><label for="hearAboutFriend">Friend</label>
+        <br>
+        <input type="radio" name="How did you hear about Open Studio for Teens?" value="teacher/school" id="hearAboutTeacherSchool"><label for="hearAboutTeacherSchool">Teacher/School</label>
+        <br>
+        <input type="radio" name="How did you hear about Open Studio for Teens?" value="family/mentor" id="hearAboutFamilyMentor"><label for="hearAboutFamilyMentor">Family/Mentor</label>
+        <br>
+        <input type="radio" name="How did you hear about Open Studio for Teens?" value="website or email" id="hearAboutWebsiteEmail"><label for="hearAboutWebsiteEmail">Website or email</label>
+      </fieldset>
 
-        <label>School or Organization*
-            <input type="text" name="School/Organization/Other" id="schoolInput" class="typeahead">
-            <!-- <span class="form-error">Required.</span> -->
-        </label>
+      <label>School or Organization*
+        <input type="text" name="School/Organization/Other" id="schoolInput" class="typeahead">
+        <!-- <span class="form-error">Required.</span> -->
+      </label>
 
-        <fieldset class="fieldset">
+      <fieldset class="fieldset">
         <legend>Grade</legend>
-            <input type="radio" name="Grade" value="9th" id="grade9" required><label for="grade9">9th</label>
-            <br>
-            <input type="radio" name="Grade" value="10th" id="grade10"><label for="grade10">10th</label>
-            <br>
-            <input type="radio" name="Grade" value="11th" id="grade11"><label for="grade11">11th</label>
-            <br>
-            <input type="radio" name="Grade" value="12th" id="grade12"><label for="grade12">12th</label>
-            <br>
-            <input type="radio" name="Grade" value="Other" id="gradeOther"><label for="gradeOther">Other</label>
-        </fieldset>
+        <input type="radio" name="Grade" value="9th" id="grade9" required><label for="grade9">9th</label>
+        <br>
+        <input type="radio" name="Grade" value="10th" id="grade10"><label for="grade10">10th</label>
+        <br>
+        <input type="radio" name="Grade" value="11th" id="grade11"><label for="grade11">11th</label>
+        <br>
+        <input type="radio" name="Grade" value="12th" id="grade12"><label for="grade12">12th</label>
+        <br>
+        <input type="radio" name="Grade" value="Other" id="gradeOther"><label for="gradeOther">Other</label>
+      </fieldset>
 
-        <fieldset class="fieldset">
-            <legend>How many times have you been to the Whitney?</legend>
-            <input type="radio" name="How many times have you been to the Whitney?" value="First time" id="firstTimeWhitney" required><label for="firstTimeWhitney">First time</label>
-            <br>
-            <input type="radio" name="How many times have you been to the Whitney?" value="A few times" id="fewTimesWhitney"><label for="fewTimesWhitney">A few times</label>
-            <br>
-            <input type="radio" name="How many times have you been to the Whitney?" value="Lots of times" id="lotsTimesWhitney"><label for="lotsTimesWhitney">Lots of times</label>
-        </fieldset>
-
-        
-        <fieldset class="fieldset">
-            <legend>How many times have you attended Open Studio?</legend>
-            <input type="radio" name="How many times have you attended Open Studio?" value="First time" id="firstTimeStudio" required><label for="firstTimeStudio">First time</label>
-            <br>
-            <input type="radio" name="How many times have you attended Open Studio?" value="A few times" id="fewTimesStudio"><label for="fewTimesStudio">A few times</label>
-            <br>
-            <input type="radio" name="How many times have you attended Open Studio?" value="Lots of times" id="lotsTimesStudio"><label for="lotsTimesStudio">Lots of times</label>
-        </fieldset>
+      <fieldset class="fieldset">
+        <legend>How many times have you been to the Whitney?</legend>
+        <input type="radio" name="How many times have you been to the Whitney?" value="First time" id="firstTimeWhitney" required><label for="firstTimeWhitney">First time</label>
+        <br>
+        <input type="radio" name="How many times have you been to the Whitney?" value="A few times" id="fewTimesWhitney"><label for="fewTimesWhitney">A few times</label>
+        <br>
+        <input type="radio" name="How many times have you been to the Whitney?" value="Lots of times" id="lotsTimesWhitney"><label for="lotsTimesWhitney">Lots of times</label>
+      </fieldset>
 
 
-        <div data-abide-error class="alert callout" style="display: none;">
-            <p>
-                <i class="fi-alert"></i>Please enter all the required fields.
-            </p>
+      <fieldset class="fieldset">
+        <legend>How many times have you attended Open Studio?</legend>
+        <input type="radio" name="How many times have you attended Open Studio?" value="First time" id="firstTimeStudio" required><label for="firstTimeStudio">First time</label>
+        <br>
+        <input type="radio" name="How many times have you attended Open Studio?" value="A few times" id="fewTimesStudio"><label for="fewTimesStudio">A few times</label>
+        <br>
+        <input type="radio" name="How many times have you attended Open Studio?" value="Lots of times" id="lotsTimesStudio"><label for="lotsTimesStudio">Lots of times</label>
+      </fieldset>
+
+
+      <div data-abide-error class="alert callout" style="display: none;">
+        <p>
+          <i class="fi-alert"></i>Please enter all the required fields.
+        </p>
+      </div>
+
+      <input id="formSubmit" type="submit" value="Submit" class="button large">
+
+      <div class="loader-container ball-chasing">
+        <div class="loader hide">
+          <div class="ball-1"></div>
+          <div class="ball-2"></div>
         </div>
-
-        <input id="formSubmit" type="submit" value="Submit" class="button large">
-
-        <div class="loader-container ball-chasing">
-            <div class="loader hide">
-                <div class="ball-1"></div>
-                <div class="ball-2"></div>
-            </div>
-        </div>
+      </div>
 
     </form>
 
-</div>
+  </div>
 </div>
 
 
@@ -125,20 +125,20 @@
   <h2>Admin Login</h2>
   <form id="loginForm">
 
-      <label>Email
-        <input type="email" name="loginEmail" required>
+    <label>Email
+      <input type="email" name="loginEmail" required>
     </label>
 
     <label>Password
-        <input type="password" name="loginPassword" required="">
+      <input type="password" name="loginPassword" required="">
     </label>
 
     <input id="loginSubmit" type="submit" class="button" value="Login">
-</form>
+  </form>
 
-<button class="close-button" data-close aria-label="Close reveal" type="button">
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
-</button>
+  </button>
 </div>
 
 <!-- Student modal -->
@@ -146,26 +146,26 @@
   <h2>Student List</h2>
   <table id="listTable" class="hover">
     <thead>
-    <tr>
-      <th style="width: 7em;">Timestamp</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>School / Organization / Other</th>
-      <th>How did you hear about Open Studio for Teens?</th>
-      <th>Grade</th>
-      <th>How many times have you been to the Whitney?</th>
-      <th>How many times have you attended Open Studio?</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
+      <tr>
+        <th style="width: 7em;">Timestamp</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>School / Organization / Other</th>
+        <th>How did you hear about Open Studio for Teens?</th>
+        <th>Grade</th>
+        <th>How many times have you been to the Whitney?</th>
+        <th>How many times have you attended Open Studio?</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
   </table>
 
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
-</button>
+  </button>
 </div>
 
 <!-- Stats modal -->
@@ -173,19 +173,19 @@
   <h2>School Counts</h2>
   <table id="statsTable" class="hover">
     <thead>
-    <tr>
-      <th>Date</th>
-      <th>School</th>
-      <th>Students</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
+      <tr>
+        <th>Date</th>
+        <th>School</th>
+        <th>Students</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
   </table>
 
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
-</button>
+  </button>
 </div>
 
 <!-- Logs modal -->
@@ -193,73 +193,77 @@
   <h2>Device Logs</h2>
   <table id="logsTable" class="hover">
     <thead>
-    <tr>
-      <th style="width: 7em;">Timestamp</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>School / Organization / Other</th>
-      <th>How did you hear about Open Studio for Teens?</th>
-      <th>Grade</th>
-      <th>How many times have you been to the Whitney?</th>
-      <th>How many times have you attended Open Studio?</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
+      <tr>
+        <th style="width: 7em;">Timestamp</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>School / Organization / Other</th>
+        <th>How did you hear about Open Studio for Teens?</th>
+        <th>Grade</th>
+        <th>How many times have you been to the Whitney?</th>
+        <th>How many times have you attended Open Studio?</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
   </table>
 
   <div class="row">
     <div class="small-12 columns">
-    <label>&nbsp;
-    <button id="clearLogs" class="alert button">Clear Logs</button>
-    </label>
+      <label>&nbsp;
+        <button id="clearLogs" class="alert button">Clear Logs</button>
+      </label>
     </div>
   </div>
 
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
-</button>
+  </button>
 </div>
 
 <!-- Acronyms modal -->
 <div class="reveal full" id="acronymsModal" data-reveal data-close-on-click="true" data-v-offset="24">
   <h2>Acronyms</h2>
 
-  <h4>Add Acronym</h4>
-  <div class="row">
-    <div class="small-5 columns">
-      <label>Shortened
-        <input id="short" type="text">
-      </label>
-    </div>
-    <div class="small-5 columns">
-      <label>Full phrase
-        <input id="full" type="text">
-      </label>
-    </div>
-    <div class="small-2 columns">
-    <label>&nbsp;
-    <button id="addAcronym" class="button">Add</button>
-    </label>
+  <div id="addAcronymContainer">
+  <h6><strong>New Acronym</strong></h6>
+    <div class="row">
+
+      <div class="small-5 columns">
+        <label>Shortened
+          <input id="short" type="text">
+        </label>
+      </div>
+
+      <div class="small-5 medium-6 columns">
+        <label>Full phrase
+          <input id="full" type="text">
+        </label>
+      </div>
+
+      <div class="small-2 medium-1 columns">
+          <button id="addAcronym" class="button">Add</button>
+      </div>
+
     </div>
   </div>
 
   <table id="acronymsTable" class="hover">
     <thead>
-    <tr>
-      <th>Shortened</th>
-      <th>Full phrase</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
+      <tr>
+        <th>Shortened</th>
+        <th>Full phrase</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
   </table>
 
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
-</button>
+  </button>
 </div>
 
 <!-- Thanks modal -->
@@ -269,28 +273,28 @@
 
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
-</button>
+  </button>
 </div>
 
 
 <!-- Footer -->
 <footer>
-    <div class="row">
-        <div class="large-12 columns">
-            <button id="login" class="button hollow small float-right" data-toggle="loginModal">Login</button>
-            
-            <button id="logout" class="button alert small float-right admin-only hide">Logout</button>
+  <div class="row">
+    <div class="large-12 columns">
+      <button id="login" class="button hollow small float-right" data-toggle="loginModal">Login</button>
 
-            <button id="logs" class="button hollow secondary small float-right admin-only hide">Device Logs</button>
+      <button id="logout" class="button alert small float-right admin-only hide">Logout</button>
 
-            <!-- <button class="button hollow success small admin-only hide">Export Excel File</button> -->
-            <button id= "acronyms" class="button secondary hollow small float-right admin-only hide">Acronyms</button>
+      <button id="logs" class="button hollow secondary small float-right admin-only hide">Device Logs</button>
 
-            <button id= "stats" class="button hollow small float-right admin-only hide">School Counts</button>
-            
-            <button id= "list" class="button hollow small float-right admin-only hide">Student List</button>
-        </div>
+      <!-- <button class="button hollow success small admin-only hide">Export Excel File</button> -->
+      <button id= "acronyms" class="button secondary hollow small float-right admin-only hide">Acronyms</button>
+
+      <button id= "stats" class="button hollow small float-right admin-only hide">School Counts</button>
+
+      <button id= "list" class="button hollow small float-right admin-only hide">Student List</button>
     </div>
+  </div>
 </footer>
 
 
@@ -301,8 +305,8 @@
 <script src="js/app.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-75991019-1', 'auto');
