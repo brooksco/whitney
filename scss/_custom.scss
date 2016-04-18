@@ -101,6 +101,9 @@ input[type="checkbox"], input[type="radio"] {
   font-size: .8em;
   // min-width: 1100px;
   // min-width: 1024px;
+}
+
+.reveal {
   overflow-y: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
 }

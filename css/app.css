@@ -3740,7 +3740,9 @@ footer {
   padding: .5rem 1.25rem; }
 
 #listTable, #logsTable {
-  font-size: .8em;
+  font-size: .8em; }
+
+.reveal {
   overflow-y: scroll;
   /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch; }
