@@ -656,7 +656,9 @@ function processForm(e) {
 // Push the form data to Google Sheets
 function pushToGoogle(time) {
 	console.log(time);
-	var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time;
+	// var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time;
+	// For teen event
+	var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time + "&How many times have you attended Open Studio?";
 
 	console.log(serializedData);
 
