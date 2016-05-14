@@ -1284,6 +1284,11 @@ var schools = [
 "Frank Sinatra School of the Arts",
 "The Pingry School",
 "Bergenfield High School",
+"City-As-School High School",
+"Brooklyn Prospect Charter School",
+"Notre Dame School",
+"St. John's Preparatory School",
+
 "Homeschool"
 ];
 
