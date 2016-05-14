@@ -605,9 +605,9 @@ function processForm(e) {
 	var hearAbout = $("input[name='How did you hear about Open Studio for Teens?']:checked").val();
 	var grade = $("input[name='Grade']:checked").val();
 	var timesWhitney = $("input[name='How many times have you been to the Whitney?']:checked").val();
-	var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
-	// Blank for open studio event
-	// var timesStudio = '';
+	// var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
+	// Blank for event
+	var timesStudio = '';
 
 	var emailValid = emailValidator(email);
 
