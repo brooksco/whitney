@@ -1301,6 +1301,17 @@ var schools = [
 "Rye High School",
 "The Packer Collegiate Institute",
 "Dwight School",
+"Hastings High School",
+"Grace Church School",
+"Regis High School",
+"Fontbonne Hall Academy",
+"Winston Preparatory School",
+"United Nations International School",
+"Nazareth Regional High School",
+"Bishop Loughlin Memorial High School",
+"Bard High School Early College Newark",
+"The James Baldwin School",
+"Energy Tech High School",
 
 "Homeschool"
 ];
