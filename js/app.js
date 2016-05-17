@@ -28,10 +28,6 @@ refAcronym.on("value", function(snapshot) {
 		}
 	}
 
-// 	var uppercaseSchools = schools.map(function(value) {
-// 	return value.toUpperCase();
-// });
-
 	console.log(schoolAcronyms);
 
 }, function (errorObject) {
