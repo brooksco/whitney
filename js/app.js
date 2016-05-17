@@ -8,6 +8,7 @@ var refAcronym = new Firebase("https://whitney.firebaseio.com/acronyms");
 
 var schoolAcronyms = {};
 
+// Load acronyms
 refAcronym.on("value", function(snapshot) {
 	// Clear current acronyms
 	schoolAcronyms = {};
@@ -20,12 +21,16 @@ refAcronym.on("value", function(snapshot) {
 	for (var key in data) {
 		if (data.hasOwnProperty(key)) {
 
-			var short = data[key]["short"];
+			var short = data[key]["short"].toUpperCase();
 			var full = data[key]["full"];
 
 			schoolAcronyms[short] = full;
 		}
 	}
+
+// 	var uppercaseSchools = schools.map(function(value) {
+// 	return value.toUpperCase();
+// });
 
 	console.log(schoolAcronyms);
 
@@ -38,15 +43,14 @@ refAcronym.on("value", function(snapshot) {
 var form = document.getElementById("whitneyForm");
 
 if (form.addEventListener) {
-    form.addEventListener("submit", processForm, false);  //Modern browsers
+    form.addEventListener("submit", processForm, false);  // Modern browsers
 
 } else if (form.attachEvent) {
-    form.attachEvent('onsubmit', processForm);            //Old IE
+    form.attachEvent('onsubmit', processForm);            // Old IE
 }
 
-// Draw the w initially
+// Draw the whitney w initially
 drawW();
-
 
 $(document).ready(function() {
 // Prefil stuff for dev'ing
@@ -86,6 +90,7 @@ $(document).ready(function() {
 		source: substringMatcher(schools)
 	});
 
+	// Scroll school field to top when focused so there's room for suggestions below
 	$("#schoolInput").on("focus", function() {
 		$("html, body").animate({
 			scrollTop: $("#schoolInput").offset().top - 40
@@ -104,10 +109,9 @@ $(document).ready(function() {
 	});
 
 
-	// On blur go through and check for acronyms
+	// On blur (focus out) go through and check for acronyms
 	$("#schoolInput").on("blur", function() {
 		var schoolInput = $("#schoolInput").val();
-
 		schoolInput = schoolInput.toUpperCase();
 
 		var index = uppercaseSchools.indexOf(schoolInput);
@@ -124,12 +128,12 @@ $(document).ready(function() {
 		
 		// First check if it's just typed in different case
 		if (index != -1) {
-			console.log("New case");
+			console.log("Different case");
 
 			$("#schoolInput").val(schools[index]);
 			$("#schoolInput").attr("value", schools[index]);
 
-			// Then check if it's an acronym, but
+			// Otherwise check if it's an acronym
 		} else if (schoolInput in schoolAcronyms) {
 			console.log("Acronym");
 
@@ -142,16 +146,6 @@ $(document).ready(function() {
 			$("#schoolInput").val(matched);
 			$("#schoolInput").attr(matched);
 
-		} else {
-			// Try it lowercase, though this is a little odd. Only in the case of lower case acronym...which would be weird probably?
-			// Should do this differently since mixed case acronyms would still be broken.
-			schoolInput = schoolInput.toLowerCase();
-
-			if (schoolInput in schoolAcronyms) {
-
-				$("#schoolInput").val(schoolAcronyms[schoolInput]);
-				$("#schoolInput").attr("value", schoolAcronyms[schoolInput]);
-			}
 		}
 
 	});
@@ -605,9 +599,9 @@ function processForm(e) {
 	var hearAbout = $("input[name='How did you hear about Open Studio for Teens?']:checked").val();
 	var grade = $("input[name='Grade']:checked").val();
 	var timesWhitney = $("input[name='How many times have you been to the Whitney?']:checked").val();
-	// var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
+	var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
 	// Blank for event
-	var timesStudio = '';
+	// var timesStudio = '';
 
 	var emailValid = emailValidator(email);
 
@@ -656,14 +650,14 @@ function processForm(e) {
 // Push the form data to Google Sheets
 function pushToGoogle(time) {
 	console.log(time);
-	// var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time;
-	// For teen event
-	var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time + "&How many times have you attended Open Studio?";
+	var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time;
+	// For special teen event
+	// var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time + "&How many times have you attended Open Studio?";
 
 	console.log(serializedData);
 
 	$.ajax({
-		// Teen event//test ajax form
+		// Special teen event // test ajax form
 		// url: "https://script.google.com/macros/s/AKfycbzP-0Yap6_ATFVXKyEubucQRmiI0E8hdSRLl8bocpLassYXr5Iy/exec",
 		// Regular whitney open studio form
 		url: "https://script.google.com/macros/s/AKfycbwn9UxQvWSfxuCj8wdP3WVgusPlWCfUYuSTKTOk40Brw3ceZiU/exec",
@@ -1279,6 +1273,7 @@ var schools = [
 "Young Women's Leadership School, Astoria",
 "Young Women's Leadership School, Queens",
 
+// Added to list
 "Union Square Academy for Health Sciences",
 "Professional Children's School",
 "Frank Sinatra School of the Arts",
@@ -1311,8 +1306,12 @@ var schools = [
 "Bishop Loughlin Memorial High School",
 "Bard High School Early College Newark",
 "The James Baldwin School",
-"Energy Tech High School",
 
+// Orgs
+"The Center",
+"The Door",
+
+// Misc
 "Homeschool"
 ];
 

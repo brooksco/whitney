@@ -3714,9 +3714,7 @@ footer {
 #wCanvas {
   position: fixed;
   left: 10px;
-  top: 10px;
-  -webkit-filter: invert(100%);
-          filter: invert(100%); }
+  top: 10px; }
   @media screen and (min-width: 0em) and (max-width: 39.9375em) {
     #wCanvas {
       display: none; } }
@@ -3756,7 +3754,7 @@ footer {
   .passwordButton:hover {
     opacity: .75; }
 
-#listTable, #logsTable {
+#listTable, #statsTable, #logsTable {
   font-size: .8em; }
 
 #exportAsterisk {

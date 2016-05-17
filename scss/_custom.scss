@@ -53,7 +53,7 @@ footer {
   left: 10px;
   top: 10px;
   // for teen event
-  filter: invert(100%);
+  // filter: invert(100%);
 
   @include breakpoint(small only) {
       display: none;
@@ -126,7 +126,7 @@ input[type="checkbox"], input[type="radio"] {
 
 // Tables
 
-#listTable, #logsTable {
+#listTable, #statsTable, #logsTable {
   font-size: .8em;
 }
 
