@@ -33,35 +33,23 @@
   <div class="large-6 medium-8 small-centered columns">
 
     <form id="whitneyForm" data-abide novalidate>
-      <label>First name*
+      <label>First name
         <input type="text" name="First name" required>
         <!-- <span class="form-error">Required.</span> -->
       </label>
 
-      <label>Last name*
+      <label>Last name
         <input type="text" name="Last name" required>
         <!-- <span class="form-error">Required.</span> -->
       </label>
 
-      <label id="emailLabel">Email*
+      <label id="emailLabel">Email
         <input type="email" name="Email" id="emailInput">
         <!-- <span class="form-error">Required.</span> -->
       </label>
 
-      <fieldset class="fieldset">
-        <!-- <legend>How did you hear about Open Studio for Teens?</legend> -->
-        <legend>How did you hear about this event?</legend>
-        <input type="radio" name="How did you hear about Open Studio for Teens?" value="friend" id="hearAboutFriend" required><label for="hearAboutFriend">Friend</label>
-        <br>
-        <input type="radio" name="How did you hear about Open Studio for Teens?" value="teacher/school" id="hearAboutTeacherSchool"><label for="hearAboutTeacherSchool">Teacher/School</label>
-        <br>
-        <input type="radio" name="How did you hear about Open Studio for Teens?" value="family/mentor" id="hearAboutFamilyMentor"><label for="hearAboutFamilyMentor">Family/Mentor</label>
-        <br>
-        <input type="radio" name="How did you hear about Open Studio for Teens?" value="website or email" id="hearAboutWebsiteEmail"><label for="hearAboutWebsiteEmail">Website or email</label>
-      </fieldset>
-
-      <label>School or Organization*
-        <input type="text" name="School/Organization/Other" id="schoolInput" class="typeahead">
+      <label>School or organization
+        <input type="text" name="School/Organization/Other" id="schoolInput" class="typeahead" required>
         <!-- <span class="form-error">Required.</span> -->
       </label>
 
@@ -79,6 +67,18 @@
       </fieldset>
 
       <fieldset class="fieldset">
+        <!-- <legend>How did you hear about Open Studio for Teens?</legend> -->
+        <legend>How did you hear about this event?</legend>
+        <input type="radio" name="How did you hear about Open Studio for Teens?" value="friend" id="hearAboutFriend" required><label for="hearAboutFriend">Friend</label>
+        <br>
+        <input type="radio" name="How did you hear about Open Studio for Teens?" value="teacher/school" id="hearAboutTeacherSchool"><label for="hearAboutTeacherSchool">Teacher/School</label>
+        <br>
+        <input type="radio" name="How did you hear about Open Studio for Teens?" value="family/mentor" id="hearAboutFamilyMentor"><label for="hearAboutFamilyMentor">Family/Mentor</label>
+        <br>
+        <input type="radio" name="How did you hear about Open Studio for Teens?" value="website or email" id="hearAboutWebsiteEmail"><label for="hearAboutWebsiteEmail">Website or email</label>
+      </fieldset>
+
+      <fieldset class="fieldset">
         <legend>How many times have you been to the Whitney?</legend>
         <input type="radio" name="How many times have you been to the Whitney?" value="First time" id="firstTimeWhitney" required><label for="firstTimeWhitney">First time</label>
         <br>
@@ -86,7 +86,6 @@
         <br>
         <input type="radio" name="How many times have you been to the Whitney?" value="Lots of times" id="lotsTimesWhitney"><label for="lotsTimesWhitney">Lots of times</label>
       </fieldset>
-
 
 <!--       <fieldset class="fieldset">
         <legend>How many times have you attended Open Studio?</legend>
@@ -97,14 +96,13 @@
         <input type="radio" name="How many times have you attended Open Studio?" value="Lots of times" id="lotsTimesStudio"><label for="lotsTimesStudio">Lots of times</label>
       </fieldset> -->
 
-
       <div data-abide-error class="alert callout" style="display: none;">
         <p>
-          <i class="fi-alert"></i>Please enter all the required fields.
+          <i class="fi-alert"></i>Please answer all questions.
         </p>
       </div>
 
-      <input id="formSubmit" type="submit" value="Submit" class="button large">
+      <input id="formSubmit" type="submit" value="Sign in" class="button large">
 
       <div class="loader-container ball-chasing">
         <div class="loader hide">

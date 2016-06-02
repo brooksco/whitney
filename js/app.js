@@ -701,7 +701,7 @@ function showLoader(bool) {
 	} else {
 		$(".loader").addClass("hide");
 		$("#formSubmit").removeClass("disabled");
-		$("#formSubmit").attr("value", "Submit");
+		$("#formSubmit").attr("value", "Sign in");
 	}
 }
 
