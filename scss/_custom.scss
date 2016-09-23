@@ -10,8 +10,6 @@ footer {
 	margin-top: 2em;
 	margin-bottom: 0;
 	width: 100%;
-	// height: 50px;
-	// background: #eee;
 }
 
 #banner {
@@ -40,15 +38,11 @@ footer {
 
 #signInTitle {
   font-weight: 700;
-  // padding-top: 1.5rem;
   padding-top: 1rem;
-	// font-size: 1.75rem;
   font-size: 1.85rem;
 }
 
 #wCanvas {
-  // position: absolute;
-  // transition: opacity 200ms ease;
   position: fixed;
   left: 10px;
   top: 10px;
@@ -56,26 +50,26 @@ footer {
   // filter: invert(100%);
 
   @include breakpoint(small only) {
-      display: none;
-    }
+    display: none;
+  }
 }
 
 #whitneyLogo {
   // -webkit-filter: invert(1);
   // filter: invert(1);
 
-	width: 17%;
-	// height: 2.3rem;
-    position: absolute;
-    top: .75rem;
-    left: .75rem;
+  width: 17%;
+  position: absolute;
+  top: .75rem;
+  left: .75rem;
 
-    @include breakpoint(small only) {
-    	display: none;
-    }
+  @include breakpoint(small only) {
+   display: none;
+ }
 }
 
-// Form styling
+
+// Form
 
 #whitneyForm {
 	margin-top: 1em;
@@ -87,15 +81,15 @@ footer {
 	text-align: center;
 }
 
-input[type="checkbox"], input[type="radio"] {
-	// margin-bottom: .6em;
-}
+// input[type="checkbox"], input[type="radio"] {
+// 	// margin-bottom: .6em;
+// }
 
 .fieldset {
 	padding: .5rem 1.25rem;
 }
 
-// End form styling
+// End form
 
 
 // Login
@@ -110,18 +104,17 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 .passwordButton {
-  // display: block;
   float: right;
   margin-left: 1em;
   color: #2199e8;
-  // margin: 1em;
   font-size: .9em;
 
   &:hover {
     opacity: .75;
   }
 }
-//
+
+// End login
 
 
 // Tables
@@ -149,19 +142,16 @@ input[type="checkbox"], input[type="radio"] {
 	width: 100%;
 }
 
-//
+// End tables
 
-// Acronym
+
+// Acronyms
 
 #addAcronymContainer {
   margin-top: 1em;
-  // margin-bottom: 2.5em;
-
-      // border: 1px solid #cacaca;
   border: 1px solid #f1f1f1;
   border-bottom: none;
   padding: 1em;
-  // background: #f8f8f8;
 
   .columns {
     padding-left: 0;
@@ -177,7 +167,8 @@ input[type="checkbox"], input[type="radio"] {
   margin: 0;
 }
 
-//
+// End acronyms
+
 
 // Alert
 
@@ -189,20 +180,15 @@ input[type="checkbox"], input[type="radio"] {
 
 // End alert
 
+
+// Typeahead
+
 .tt-is-under-cursor {
-	// color: #000000;
-	// background-color:#91c0fe;
 	-webkit-appearance: textfield;
 }
 
 .twitter-typeahead {
 	display: block !important;
-}
-
-.typeahead,
-.tt-query,
-.tt-hint {
-
 }
 
 .typeahead {
@@ -215,8 +201,8 @@ input[type="checkbox"], input[type="radio"] {
 
 .tt-query {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 .tt-hint {
@@ -232,16 +218,13 @@ input[type="checkbox"], input[type="radio"] {
   border: 1px solid rgba(0, 0, 0, 0.2);
 
   -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
 
 .tt-suggestion {
-  // padding: 3px 20px;
   padding: .25em 1em;
   font-size: 1.2em;
-  // font-size: 18px;
-  // line-height: 24px;
 }
 
 .tt-suggestion:hover {
@@ -260,28 +243,29 @@ input[type="checkbox"], input[type="radio"] {
   margin: 0;
 }
 
-// .gist {
-//   font-size: 14px;
-// }
+// End typeahead
 
+
+// Loading animation
+// Lightly modified from @tobiasahlin https://github.com/tobiasahlin/SpinKit
 
 .ball-chasing .loader {
 
-&.hide {
-	opacity: 0;
+  &.hide {
+   opacity: 0;
+ }
+
+ transition: all 1s ease;
+ margin-top: -62px;
+ margin-left: 40px;
+ opacity: 1;
+
+ width: 40px;
+ height: 40px;
+ -webkit-animation: rotate 2s linear infinite;
+ animation: rotate 2s linear infinite;
 }
 
-	transition: all 1s ease;
-	margin-top: -62px;
-	margin-left: 40px;
-	// display: none;
-	opacity: 1;
-
-  width: 40px;
-  height: 40px;
-  -webkit-animation: rotate 2s linear infinite;
-          animation: rotate 2s linear infinite;
-}
 .ball-chasing .loader .ball-1, .ball-chasing .loader .ball-2 {
   position: absolute;
   top: 0;
@@ -289,39 +273,42 @@ input[type="checkbox"], input[type="radio"] {
   height: 60%;
   border-radius: 50%;
   background-color: #fff;
-  // background-color: #eee;
+
   -webkit-animation: chasingBallBounce 2s linear infinite;
-          animation: chasingBallBounce 2s linear infinite;
+  animation: chasingBallBounce 2s linear infinite;
 }
+
 .ball-chasing .loader .ball-2 {
   top: auto;
   bottom: 0;
   -webkit-animation-delay: -1s;
-          animation-delay: -1s;
+  animation-delay: -1s;
 }
 
 @-webkit-keyframes rotate {
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes rotate {
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 @-webkit-keyframes chasingBallBounce {
   50% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
 }
 @keyframes chasingBallBounce {
   50% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
 }
+
+// End loading animation
