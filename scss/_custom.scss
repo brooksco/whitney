@@ -1,7 +1,6 @@
-
+// General
 
 body {
-	// filter: blur(10px);
 	font-family: 'hg-t55', Helvetica, Arial, sans-serif;
 }
 
@@ -27,7 +26,6 @@ footer {
     color: white;
     // text-shadow: 1px 1px rgba(255, 255, 255, 0.85);
     // text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
-
     height: 6.75rem;
     display: flex;
     justify-content:center;
@@ -46,7 +44,6 @@ footer {
   position: fixed;
   left: 10px;
   top: 10px;
-  // for teen event
   // filter: invert(100%);
 
   @include breakpoint(small only) {
@@ -57,7 +54,6 @@ footer {
 #whitneyLogo {
   // -webkit-filter: invert(1);
   // filter: invert(1);
-
   width: 17%;
   position: absolute;
   top: .75rem;
@@ -67,6 +63,8 @@ footer {
    display: none;
  }
 }
+
+// End general
 
 
 // Form
@@ -260,6 +258,7 @@ footer {
  height: 40px;
  -webkit-animation: rotate 2s linear infinite;
  animation: rotate 2s linear infinite;
+
 }
 
 .ball-chasing .loader .ball-1, .ball-chasing .loader .ball-2 {
@@ -294,12 +293,14 @@ footer {
     transform: rotate(360deg);
   }
 }
+
 @-webkit-keyframes chasingBallBounce {
   50% {
     -webkit-transform: scale(0);
     transform: scale(0);
   }
 }
+
 @keyframes chasingBallBounce {
   50% {
     -webkit-transform: scale(0);

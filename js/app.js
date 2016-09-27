@@ -48,7 +48,7 @@ if (form.addEventListener) {
 drawW();
 
 $(document).ready(function() {
-// Prefil stuff for dev'ing
+	// Prefil stuff for dev'ing
 	// $("input[name='First name']").val("aa");
 	// $("input[name='Last name']").val("bb");
 	// $("input[name='Email']").val("c@c.com");
@@ -816,7 +816,7 @@ var substringMatcher = function(strs) {
 // School list
 //
 
-// Incomplete list of high schools, continually added to
+// Incomplete list of high schools, continually added to, sourced from NYC DoE website
 var schools = [
 "47 The American Sign Language and English Secondary School",
 "A. Philip Randolph Campus High School",
@@ -1272,4 +1272,3 @@ var schools = [
 var uppercaseSchools = schools.map(function(value) {
 	return value.toUpperCase();
 });
-
