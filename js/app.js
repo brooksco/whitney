@@ -748,6 +748,7 @@ function showLoader(bool) {
 // Email Validation
 //
 
+// Very, very loose email validation
 function emailValidator(email) {
 	var re = /\S+@\S+\.\S+/;
 
