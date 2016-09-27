@@ -2,7 +2,6 @@ $(document).foundation();
 
 // Firebase reference for users
 var ref = new Firebase("https://whitney.firebaseio.com/users");
-
 // Firebase reference for acronyms
 var refAcronym = new Firebase("https://whitney.firebaseio.com/acronyms");
 
@@ -63,8 +62,6 @@ $(document).ready(function() {
 		$(".admin-only").removeClass("hide");
 	}
 
-	console.log(user);
-
 	// Use enter as tab key where appropriate
 	$("input").keypress(function(e) {
 		if (e.which == 13) {
@@ -120,6 +117,7 @@ $(document).ready(function() {
 			if (strs.length === 1) {
 				matched = strs[0];
 			}
+
 		});
 		
 		// First check if it's just typed in different case
@@ -183,6 +181,10 @@ $(document).ready(function() {
 		$(".admin-only").addClass("hide");
 	});
 
+	//
+	// Passwords
+	//
+
 	// Handle reset password
 	$("#resetPassword").on("click", function() {
 		$("#resetModal").foundation("open");
@@ -197,6 +199,7 @@ $(document).ready(function() {
 		if (resetEmail != "") {
 			ref.resetPassword({
 				email: resetEmail
+
 			}, function(error) {
 				if (error) {
 					switch (error.code) {
@@ -207,6 +210,7 @@ $(document).ready(function() {
 						console.log("Error resetting password:", error);
 						// $("#resetModal").foundation("close");
 					}
+
 				} else {
 					console.log("Password reset email sent successfully!");
 					$("#resetModal").foundation("close");
@@ -233,6 +237,7 @@ $(document).ready(function() {
 			email: changeEmail,
 			oldPassword: oldPassword,
 			newPassword: newPassword
+
 		}, function(error) {
 			if (error) {
 				switch (error.code) {
@@ -245,17 +250,24 @@ $(document).ready(function() {
 					default:
 					console.log("Error changing password:", error);
 				}
+
 			} else {
 				console.log("User password changed successfully!");
 				$("#successModal").foundation("open");
+
 				setTimeout(function(){
 					$("#successModal").foundation("close");
 					window.scrollTo(0, 0);
 					location.reload();
 				}, 2000);
+
 			}
 		});
 	});
+
+	//
+	// Student List
+	//
 
 	// Handle showing full student list
 	$("#list").on("click", function() {
@@ -268,7 +280,6 @@ $(document).ready(function() {
 				var data = snapshot.val();
 
 				for (var key in data) {
-
 					// console.log(key);
 
 					if (data.hasOwnProperty(key)) {
@@ -293,6 +304,10 @@ $(document).ready(function() {
 		$("#listModal").foundation("open");
 
 	});
+
+	//
+	// Device Logs
+	//
 
 	// Handle showing device logs, very similar to full student list
 	$("#logs").on("click", function() {
@@ -329,29 +344,33 @@ $(document).ready(function() {
 
 				var deleteArray = [];
 
-				for (i = 0; i < localStorage.length; i++)   {
-				// Get substring...
-				var sub = localStorage.key(i).substring(0, 10);
+				for (i = 0; i < localStorage.length; i++) {
+					// Get substring...
+					var sub = localStorage.key(i).substring(0, 10);
 
-				// If it's an openstudio entry...
-				if (sub == "openstudio") {
-					// Add the item to be cleared
-					deleteArray.push(localStorage.key(i));
-					// localStorage.removeItem(localStorage.key(i));
+					// If it's an openstudio entry...
+					if (sub == "openstudio") {
+						// Add the item to be cleared
+						deleteArray.push(localStorage.key(i));
+					}
+
 				}
-			}
 
-			// Go through and delete everything that needs to be deleted. This has to come in a separate loop, because otherwise
-			// Localstorage.length shrinks as you delete items, screwing up the for loop
-			for (i = 0; i < deleteArray.length; i++) {
-				localStorage.removeItem(deleteArray[i]);
-			}
+				// Go through and delete everything that needs to be deleted. This has to come in a separate loop, because otherwise
+				// Localstorage.length shrinks as you delete items, screwing up the for loop
+				for (i = 0; i < deleteArray.length; i++) {
+					localStorage.removeItem(deleteArray[i]);
+				}
 
-			deleteArray = [];
+				deleteArray = [];
+			}
 		}
-	}
 
-});
+	});
+
+	//
+	// Delete Student Entries
+	//
 
 	// Handle deleting user
 	$("body").on("click", ".deleteUser", function() {
@@ -364,6 +383,10 @@ $(document).ready(function() {
 
 	});
 
+	//
+	// School Stats
+	//
+
 	// Handle showing stats
 	$("#stats").on("click", function() {
 
@@ -371,8 +394,6 @@ $(document).ready(function() {
 
 		//ref.once? does this keep opening new channels or stick to one?
 		ref.orderByChild("time").on("value", function(snapshot) {
-			// console.log(snapshot.val());
-
 			var tally = {};
 
 			var data = snapshot.val();
@@ -394,6 +415,7 @@ $(document).ready(function() {
 						} else {
 							tally[date][school] = {};
 							tally[date][school] = 1;
+
 						}
 
 						// If it isn't, add the date and the school, start the count
@@ -401,6 +423,7 @@ $(document).ready(function() {
 						tally[date] = {};
 						tally[date][school] = {};
 						tally[date][school] = 1;
+
 					}
 
 				}
@@ -424,7 +447,6 @@ $(document).ready(function() {
 
 			// console.log("Tally");
 			// console.log(tally);
-
 			$("#statsModal").foundation("open");
 
 		}, function (errorObject) {
@@ -432,6 +454,10 @@ $(document).ready(function() {
 		});
 
 	});
+
+	//
+	// Acronyms
+	//
 
 	// Handle acronyms
 	$("#acronyms").on("click", function() {
@@ -455,6 +481,7 @@ $(document).ready(function() {
   	});
 
 		$("#acronymsModal").foundation("open");
+
 	});
 
 	// Handle deleting acronym
@@ -496,20 +523,21 @@ $(document).ready(function() {
 
 }); // End ready
 
+//
+// Responsive W
+//
 
-// w drawing
-
-// On resize draw new w  
+// On resize draw new W  
 window.onresize = function(event) {
 	drawW();
 };
 
-// On scroll draw new w  
+// On scroll draw new W 
 window.onscroll = function (e) {  
 	drawW();
 } 
 
-// Function for drawing the whitney w
+// Function for drawing the Whitney W
 function drawW() {
 	// w canvas variables
 	var canvas = document.getElementById("wCanvas");
@@ -579,6 +607,9 @@ function drawW() {
 	}
 } // End drawW
 
+//
+// Form Submission
+//
 
 // Process the form on submit
 function processForm(e) {
@@ -596,7 +627,7 @@ function processForm(e) {
 	var grade = $("input[name='Grade']:checked").val();
 	var timesWhitney = $("input[name='How many times have you been to the Whitney?']:checked").val();
 	// var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
-	// Blank for event
+	// Blank for event, or if this question shouldn't be asked
 	var timesStudio = '';
 
 	var emailValid = emailValidator(email);
@@ -642,6 +673,10 @@ function processForm(e) {
 	}
 
 }
+
+//
+// Google Sheets
+//
 
 // Push the form data to Google Sheets
 function pushToGoogle(time) {
@@ -691,6 +726,10 @@ function pushToGoogle(time) {
 
 }
 
+//
+// Loading Behavior
+//
+
 // Show/hide submit button changes and other loading/submitting elements
 function showLoader(bool) {
 	if (bool == true) {
@@ -705,6 +744,10 @@ function showLoader(bool) {
 	}
 }
 
+//
+// Email Validation
+//
+
 function emailValidator(email) {
 	var re = /\S+@\S+\.\S+/;
 
@@ -716,7 +759,11 @@ function emailValidator(email) {
 	}
 }
 
-// Format date
+//
+// Date Formatting
+//
+
+// Return properly formatted date string
 function getFormattedDate() {
 	var date = new Date();
 
@@ -736,6 +783,10 @@ function getFormattedDate() {
 
 	return str;
 }
+
+//
+// Substring Matcher
+//
 
 // Match string portions
 var substringMatcher = function(strs) {
@@ -760,106 +811,11 @@ var substringMatcher = function(strs) {
 };
 };
 
+//
+// School list
+//
 
-// function exportTableToCSV($table, filename) {
-//                 var $headers = $table.find('tr:has(th)')
-//                     ,$rows = $table.find('tr:has(td)')
-
-//                     // Temporary delimiter characters unlikely to be typed by keyboard
-//                     // This is to avoid accidentally splitting the actual contents
-//                     ,tmpColDelim = String.fromCharCode(11) // vertical tab character
-//                     ,tmpRowDelim = String.fromCharCode(0) // null character
-
-//                     // actual delimiter characters for CSV format
-//                     ,colDelim = '","'
-//                     ,rowDelim = '"\r\n"';
-
-//                     // Grab text from table into CSV formatted string
-//                     var csv = '"';
-//                     csv += formatRows($headers.map(grabRow));
-//                     csv += rowDelim;
-//                     csv += formatRows($rows.map(grabRow)) + '"';
-
-//                     // Data URI
-//                     var csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
-
-//                 // For IE (tested 10+)
-//                 if (window.navigator.msSaveOrOpenBlob) {
-//                     var blob = new Blob([decodeURIComponent(encodeURI(csv))], {
-//                         type: "text/csv;charset=utf-8;"
-//                     });
-//                     navigator.msSaveBlob(blob, filename);
-//                 } else {
-//                     $(this)
-//                         .attr({
-//                             'download': filename
-//                             ,'href': csvData
-//                             //,'target' : '_blank' //if you want it to open in a new window
-//                     });
-//                 }
-
-//                 //------------------------------------------------------------
-//                 // Helper Functions 
-//                 //------------------------------------------------------------
-//                 // Format the output so it has the appropriate delimiters
-//                 function formatRows(rows){
-//                     return rows.get().join(tmpRowDelim)
-//                         .split(tmpRowDelim).join(rowDelim)
-//                         .split(tmpColDelim).join(colDelim);
-//                 }
-//                 // Grab and format a row from the table
-//                 function grabRow(i,row){
-
-//                     var $row = $(row);
-//                     //for some reason $cols = $row.find('td') || $row.find('th') won't work...
-//                     var $cols = $row.find('td'); 
-//                     if(!$cols.length) $cols = $row.find('th');  
-
-//                     return $cols.map(grabCol)
-//                                 .get().join(tmpColDelim);
-//                 }
-//                 // Grab and format a column from the table 
-//                 function grabCol(j,col){
-//                     var $col = $(col),
-//                         $text = $col.text();
-
-//                     return $text.replace('"', '""'); // escape double quotes
-
-//                 }
-//             }
-
-
-//             // This must be a hyperlink
-//             $("#export").click(function (event) {
-//                 // var outputFile = 'export'
-//                 var outputFile = window.prompt("What do you want to name your output file (Note: This won't have any effect on Safari)") || 'export';
-//                 outputFile = outputFile.replace('.csv','') + '.csv'
-
-//                 // CSV
-//                 exportTableToCSV.apply(this, [$('#dvData > table'), outputFile]);
-
-//                 // IF CSV, don't do event.preventDefault() or return false
-//                 // We actually need this to be a typical hyperlink
-//             });
-//         });
-
-
-// Need to do a key/pair of common acronyms and real names
-// var schoolAcronyms = {
-// 	"Brooklyn Tech" : "Brooklyn Technical High School",
-// 	"BTHS" : "Brooklyn Technical High School",
-// 	"FSSA" : "Frank Sinatra School of the Arts",
-// 	"HSAS" : "High School of American Studies at Lehman College",
-// 	"HSAS@Lehman" : "High School of American Studies at Lehman College",
-// 	"HSAS @ Lehman" : "High School of American Studies at Lehman College",
-// 	"MCSM" : "Manhattan Center for Science and Mathematics",
-// 	"PPAS" : "Professional Performing Arts High School",
-// 	"PCS" : "Professional Children's School",
-// 	"SOTF" : "School of the Future High School",
-// 	"Stuyvesant" : "Stuyvesant High School"
-// };
-
-// Probably incomplete list of high schools, needs to be cleaned up
+// Incomplete list of high schools, continually added to
 var schools = [
 "47 The American Sign Language and English Secondary School",
 "A. Philip Randolph Campus High School",
@@ -1311,6 +1267,7 @@ var schools = [
 "Homeschool"
 ];
 
+// Uppercase version of school list
 var uppercaseSchools = schools.map(function(value) {
 	return value.toUpperCase();
 });

@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="css/app.css">
   <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 </head>
+
 <body>
 
 <!-- <div id="banner">
@@ -35,22 +37,18 @@
     <form id="whitneyForm" data-abide novalidate>
       <label>First name
         <input type="text" name="First name" required>
-        <!-- <span class="form-error">Required.</span> -->
       </label>
 
       <label>Last name
         <input type="text" name="Last name" required>
-        <!-- <span class="form-error">Required.</span> -->
       </label>
 
       <label id="emailLabel">Email
         <input type="email" name="Email" id="emailInput">
-        <!-- <span class="form-error">Required.</span> -->
       </label>
 
       <label>School or organization
         <input type="text" name="School/Organization/Other" id="schoolInput" class="typeahead" required>
-        <!-- <span class="form-error">Required.</span> -->
       </label>
 
       <fieldset class="fieldset">
@@ -123,10 +121,10 @@
   <form id="loginForm">
 
     <div id="loginError" data-abide-error="" class="alert callout">
-        <p>
-          <i class="fi-alert"></i>Incorrect email or password.
-        </p>
-      </div>
+      <p>
+        <i class="fi-alert"></i>Incorrect email or password.
+      </p>
+    </div>
 
     <label>Email
       <input type="email" name="loginEmail" required>
@@ -194,11 +192,10 @@
 <div class="reveal full" id="listModal" data-reveal data-close-on-click="true" data-v-offset="24">
   <h2>Student List</h2>
 
-  <!-- <a download="data.xls" href="#" onclick="return ExcellentExport.excel(this, 'listTable', 'Sheet 1');">Export to Excel</a> -->
   <a class="export button small hollow success" download="data.csv" href="#" onclick="
-    $('.deleteUserTd').remove();
-    $('#exportAsterisk').css('display', 'inline-block');
-    return ExcellentExport.csv(this, 'listTable');
+  $('.deleteUserTd').remove();
+  $('#exportAsterisk').css('display', 'inline-block');
+  return ExcellentExport.csv(this, 'listTable');
   ">Export to CSV</a>
   <label id="exportAsterisk">*All delete buttons temporarily removed for cleaner exporting</label>
 
@@ -285,7 +282,7 @@
   <h2>Acronyms</h2>
 
   <div id="addAcronymContainer">
-  <h6><strong>New Acronym</strong></h6>
+    <h6><strong>New Acronym</strong></h6>
     <div class="row">
 
       <div class="small-5 columns">
@@ -301,7 +298,7 @@
       </div>
 
       <div class="small-2 medium-1 columns">
-          <button id="addAcronym" class="button">Add</button>
+        <button id="addAcronym" class="button">Add</button>
       </div>
 
     </div>
