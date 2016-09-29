@@ -47,6 +47,7 @@ if (form.addEventListener) {
 // Draw the whitney w initially
 drawW();
 
+// Once the page has loaded...
 $(document).ready(function() {
 	// Prefil stuff for dev'ing
 	// $("input[name='First name']").val("aa");
@@ -142,6 +143,10 @@ $(document).ready(function() {
 		}
 
 	});
+
+	//
+	// Admin
+	//
 
 	// Handle login
 	$("#loginForm").on("submit", function(e) {
@@ -391,7 +396,6 @@ $(document).ready(function() {
 
 		$("#statsTable tbody").empty();
 
-		//ref.once? does this keep opening new channels or stick to one?
 		ref.orderByChild("time").on("value", function(snapshot) {
 			var tally = {};
 
@@ -444,8 +448,6 @@ $(document).ready(function() {
 				}
 			}
 
-			// console.log("Tally");
-			// console.log(tally);
 			$("#statsModal").foundation("open");
 
 		}, function (errorObject) {
@@ -476,7 +478,7 @@ $(document).ready(function() {
 
 					}
 				}
-  		// do some stuff once
+
   	});
 
 		$("#acronymsModal").foundation("open");
