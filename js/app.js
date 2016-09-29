@@ -101,7 +101,6 @@ $(document).ready(function() {
 		}
 	});
 
-
 	// On blur (focus out) go through and check for acronyms
 	$("#schoolInput").on("blur", function() {
 		var schoolInput = $("#schoolInput").val();
@@ -120,9 +119,9 @@ $(document).ready(function() {
 
 		});
 		
-		// First check if it's just typed in different case
+		// First check if it's just typed in different case, or it was already correct to begin with
 		if (index != -1) {
-			console.log("Different case");
+			console.log("Different case or already correct");
 
 			$("#schoolInput").val(schools[index]);
 			$("#schoolInput").attr("value", schools[index]);
