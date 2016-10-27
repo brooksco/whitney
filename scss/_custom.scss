@@ -13,7 +13,8 @@ footer {
 
 #banner {
   // background-image: url("../img/anarchist_doppler.jpg");
-  background-image: url("../img/neel.jpg");
+  // background-image: url("../img/neel.jpg");
+  background-image: url("../img/halloween.jpg");
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -31,6 +32,9 @@ footer {
     justify-content:center;
     align-content:center;
     flex-direction:column; /* column | row */
+
+    // Halloween
+    color: #ef6e31;
   }
 }
 
@@ -77,6 +81,15 @@ footer {
 	margin-top: 1em;
 	width: 6em;
 	text-align: center;
+
+  // Halloween
+  background-color: #ef6e31;
+
+  &:hover {
+    background-color: #ce5801;
+  }
+
+
 }
 
 .fieldset {

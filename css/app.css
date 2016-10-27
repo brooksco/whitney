@@ -3681,7 +3681,7 @@ footer {
   width: 100%; }
 
 #banner {
-  background-image: url("../img/neel.jpg");
+  background-image: url("../img/halloween.jpg");
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -3704,7 +3704,8 @@ footer {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
-    /* column | row */ }
+    /* column | row */
+    color: #ef6e31; }
 
 #signInTitle {
   font-weight: 700;
@@ -3734,7 +3735,10 @@ footer {
 #formSubmit {
   margin-top: 1em;
   width: 6em;
-  text-align: center; }
+  text-align: center;
+  background-color: #ef6e31; }
+  #formSubmit:hover {
+    background-color: #ce5801; }
 
 .fieldset {
   padding: .5rem 1.25rem; }

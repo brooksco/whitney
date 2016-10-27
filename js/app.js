@@ -45,7 +45,7 @@ if (form.addEventListener) {
 }
 
 // Draw the whitney w initially
-drawW();
+// drawW();
 
 // Once the page has loaded...
 $(document).ready(function() {
@@ -530,12 +530,12 @@ $(document).ready(function() {
 
 // On resize draw new W  
 window.onresize = function(event) {
-	drawW();
+	// drawW();
 };
 
 // On scroll draw new W 
 window.onscroll = function (e) {  
-	drawW();
+	// drawW();
 } 
 
 // Function for drawing the Whitney W
@@ -627,14 +627,18 @@ function processForm(e) {
 	var hearAbout = $("input[name='How did you hear about Open Studio for Teens?']:checked").val();
 	var grade = $("input[name='Grade']:checked").val();
 	var timesWhitney = $("input[name='How many times have you been to the Whitney?']:checked").val();
-	var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
+	// var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
 	// Blank for event, or if this question shouldn't be asked
-	// var timesStudio = '';
+	var timesStudio = '';
+
+	var zipcode = $("input[name='ZIP code']").val();
 
 	var emailValid = emailValidator(email);
 
 	// Validate
-	if (firstName == '' || lastName == '' || email == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
+	//if (firstName == '' || lastName == '' || email == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
+	// w/ ZIP code
+	if (firstName == '' || lastName == '' || email == '' || zipcode == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
 
 		console.log("Validation failed");
 		$("div[data-abide-error]").show();
@@ -648,7 +652,10 @@ function processForm(e) {
 
 	} else {
 
-		var userInfo = [time, firstName, lastName, email, school, hearAbout, grade, timesWhitney, timesStudio];
+		// var userInfo = [time, firstName, lastName, email, school, hearAbout, grade, timesWhitney, timesStudio];
+		// w/ ZIP code
+		var userInfo = [time, firstName, lastName, email, zipcode, school, hearAbout, grade, timesWhitney, timesStudio];
+
 		
 		// If localstorage is available...
 		if (typeof(Storage) !== "undefined") {
@@ -656,11 +663,25 @@ function processForm(e) {
 			localStorage.setItem("openstudio" + time, JSON.stringify(userInfo));
 		}
 
+		// ref.push({
+		// 	time: time,
+		// 	firstName: firstName,
+		// 	lastName: lastName,
+		// 	email: email,
+		// 	school: school,
+		// 	hearAbout: hearAbout,
+		// 	grade: grade,
+		// 	timesWhitney: timesWhitney,
+		// 	timesStudio: timesStudio
+		// });
+
+		// w/ ZIP code
 		ref.push({
 			time: time,
 			firstName: firstName,
 			lastName: lastName,
 			email: email,
+			zipcode: zipcode,
 			school: school,
 			hearAbout: hearAbout,
 			grade: grade,
