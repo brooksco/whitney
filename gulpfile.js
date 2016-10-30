@@ -18,6 +18,18 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('css'));
 });
 
-gulp.task('default', ['sass'], function() {
+gulp.task('js', function() {
+  return gulp.src([
+      'js/dev/schools.js',
+      'js/dev/w.js',
+      'js/dev/app.js'
+    ])
+    .pipe($.concat('js/app.min.js'))
+    .pipe($.uglify())
+    .pipe(gulp.dest(''));
+});
+
+gulp.task('default', ['sass', 'js'], function() {
   gulp.watch(['scss/**/*.scss'], ['sass']);
+  gulp.watch(['js/**/*.js'], ['js'])
 });

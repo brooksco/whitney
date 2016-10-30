@@ -12,15 +12,15 @@
 
 <body>
 
-<div id="banner">
+<!-- <div id="banner">
   <div class="row">
     <div class="large-6 medium-8 small-centered columns">
       <h1>HALLOWEEN TEEN NIGHT</h1>
     </div>
   </div>
-</div>
+</div> -->
 
-<!--
+
 <div class="row">
   <div class="large-6 medium-8 small-centered columns">
     <canvas id="wCanvas" width="300" height="450">
@@ -29,7 +29,7 @@
     <h1 id="signInTitle">OPEN STUDIO FOR TEENS</h1>
   </div>
 </div>
--->
+
 
 <div class="row">
   <div class="large-6 medium-8 small-centered columns">
@@ -89,14 +89,14 @@
         <input type="radio" name="How many times have you been to the Whitney?" value="Lots of times" id="lotsTimesWhitney"><label for="lotsTimesWhitney">Lots of times</label>
       </fieldset>
 
-      <!-- <fieldset class="fieldset">
+      <fieldset class="fieldset">
         <legend>How many times have you attended Open Studio?</legend>
         <input type="radio" name="How many times have you attended Open Studio?" value="First time" id="firstTimeStudio" required><label for="firstTimeStudio">First time</label>
         <br>
         <input type="radio" name="How many times have you attended Open Studio?" value="A few times" id="fewTimesStudio"><label for="fewTimesStudio">A few times</label>
         <br>
         <input type="radio" name="How many times have you attended Open Studio?" value="Lots of times" id="lotsTimesStudio"><label for="lotsTimesStudio">Lots of times</label>
-      </fieldset> -->
+      </fieldset>
 
       <div data-abide-error class="alert callout" style="display: none;">
         <p>
@@ -192,16 +192,16 @@
   </button>
 </div>
 
-<!-- Student modal -->
+<!-- Teens modal -->
 <div class="reveal full" id="listModal" data-reveal data-close-on-click="true" data-v-offset="24">
-  <h2>Student List</h2>
+  <h2>Teens</h2>
 
-  <a class="export button small hollow success" download="data.csv" href="#" onclick="
+<!--   <a class="export button small hollow success" download="data.csv" href="#" onclick="
   $('.deleteUserTd').remove();
   $('#exportAsterisk').css('display', 'inline-block');
   return ExcellentExport.csv(this, 'listTable');
   ">Export to CSV</a>
-  <label id="exportAsterisk">*All delete buttons temporarily removed for cleaner exporting</label>
+  <label id="exportAsterisk">*All delete buttons temporarily removed for cleaner exporting</label> -->
 
   <table id="listTable" class="hover">
     <thead>
@@ -229,13 +229,12 @@
 
 <!-- Stats modal -->
 <div class="reveal full" id="statsModal" data-reveal data-close-on-click="true" data-v-offset="24">
-  <h2>School Counts</h2>
+  <h2>Totals</h2>
   <table id="statsTable" class="hover">
     <thead>
       <tr>
         <th>Date</th>
-        <th>School / Organization</th>
-        <th>Students</th>
+        <th>Teens</th>
       </tr>
     </thead>
     <tbody>
@@ -290,13 +289,13 @@
     <div class="row">
 
       <div class="small-5 columns">
-        <label>Shortened
+        <label>Shorthand
           <input id="short" type="text">
         </label>
       </div>
 
       <div class="small-5 medium-6 columns">
-        <label>Full phrase
+        <label>Full name
           <input id="full" type="text">
         </label>
       </div>
@@ -311,8 +310,8 @@
   <table id="acronymsTable" class="hover">
     <thead>
       <tr>
-        <th>Shortened</th>
-        <th>Full phrase</th>
+        <th>Shorthand</th>
+        <th>Full name</th>
         <th></th>
       </tr>
     </thead>
@@ -354,13 +353,13 @@
 
       <button id="logout" class="button alert small float-right admin-only hide">Logout</button>
 
-      <button id="logs" class="button hollow secondary small float-right admin-only hide">Device Logs</button>
+      <button id="logs" class="button hollow secondary small float-right admin-only hide">Log</button>
 
       <button id= "acronyms" class="button secondary hollow small float-right admin-only hide">Acronyms</button>
 
-      <button id= "stats" class="button hollow small float-right admin-only hide">School Counts</button>
+      <button id= "list" class="button hollow small float-right admin-only hide">Teens</button>
 
-      <button id= "list" class="button hollow small float-right admin-only hide">Student List</button>
+      <button id= "stats" class="button hollow small float-right admin-only hide">Totals</button>
     </div>
   </div>
 </footer>
@@ -370,8 +369,8 @@
 <script src="bower_components/what-input/what-input.js"></script>
 <script src="bower_components/foundation-sites/dist/foundation.js"></script>
 <script src="js/vendor/typeahead.bundle.min.js"></script>
-<script src="js/vendor/excellentexport.min.js"></script>
-<script src="js/app.js"></script>
+<!-- <script src="js/vendor/excellentexport.min.js"></script> -->
+<script src="js/app.min.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

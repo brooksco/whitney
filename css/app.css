@@ -3704,8 +3704,7 @@ footer {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
-    /* column | row */
-    color: #ef6e31; }
+    /* column | row */ }
 
 #signInTitle {
   font-weight: 700;
@@ -3735,10 +3734,7 @@ footer {
 #formSubmit {
   margin-top: 1em;
   width: 6em;
-  text-align: center;
-  background-color: #ef6e31; }
-  #formSubmit:hover {
-    background-color: #ce5801; }
+  text-align: center; }
 
 .fieldset {
   padding: .5rem 1.25rem; }
