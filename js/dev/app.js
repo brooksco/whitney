@@ -517,7 +517,6 @@ function processForm(e) {
 
 	// Validate
 	if (firstName == '' || lastName == '' || email == '' || zipcode == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
-
 		console.log("Validation failed");
 		$("div[data-abide-error]").show();
 
