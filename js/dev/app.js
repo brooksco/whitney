@@ -498,22 +498,18 @@ function processForm(e) {
 	e.preventDefault();
 
 	showLoader(true);
-
-	var time = getFormattedDate();
-	var firstName = $("input[name='First name']").val();
-	var lastName = $("input[name='Last name']").val();
-	var email = $("input[name='Email']").val();
-	var school = $("input[name='School/Organization/Other']").val();
-
-	var hearAbout = $("input[name='How did you hear about Open Studio for Teens?']:checked").val();
-	var grade = $("input[name='Grade']:checked").val();
-	var timesWhitney = $("input[name='How many times have you been to the Whitney?']:checked").val();
-	// var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
-	// SWITCH for event
-	var timesStudio = '';
-
-	var zipcode = $("input[name='ZIP code']").val();
-	var emailValid = emailValidator(email);
+	console("here we go");
+	console.log(firstName == '');
+	console.log(lastName == '');
+	console.log(email == '') 
+	console.log(zipcode == '');
+	console.log(school == '');
+	console.log(hearAbout == undefined);
+	console.log(grade == undefined);
+	console.log(timesWhitney == undefined);
+	console.log(timesStudio == undefined);
+	console.log(!emailValid);
+	console.log('end');
 
 	// Validate
 	if (firstName == '' || lastName == '' || email == '' || zipcode == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
