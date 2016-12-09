@@ -98,7 +98,6 @@ $(document).ready(function() {
 		if (emailValidator(email) == false) {
 			$("#emailInput").addClass("is-invalid-input");
 			$("#emailLabel").addClass("is-invalid-label");
-
 		}
 	});
 
@@ -117,7 +116,6 @@ $(document).ready(function() {
 			if (strs.length === 1) {
 				matched = strs[0];
 			}
-
 		});
 		
 		// First check if it's just typed in different case, or it was already correct to begin with
@@ -139,7 +137,6 @@ $(document).ready(function() {
 
 			$("#schoolInput").val(matched);
 			$("#schoolInput").attr(matched);
-
 		}
 
 	});
@@ -212,7 +209,6 @@ $(document).ready(function() {
 						break;
 						default:
 						console.log("Error resetting password:", error);
-						// $("#resetModal").foundation("close");
 					}
 
 				} else {
@@ -280,30 +276,28 @@ $(document).ready(function() {
 		$("#exportAsterisk").hide();
 
 		ref.once("value", function(snapshot) {
-			// ref.orderByChild("time").on("value", function(snapshot) {
-				var data = snapshot.val();
+			var data = snapshot.val();
 
-				for (var key in data) {
-					// console.log(key);
+			for (var key in data) {
 
-					if (data.hasOwnProperty(key)) {
-						var time = data[key]["time"];
-						var firstName = data[key]["firstName"];
-						var lastName = data[key]["lastName"];
-						var email = data[key]["email"];
-						var school = data[key]["school"];
-						var hearAbout = data[key]["hearAbout"];
-						var grade = data[key]["grade"];
-						var timesWhitney = data[key]["timesWhitney"];
-						var timesStudio = data[key]["timesStudio"];
+				if (data.hasOwnProperty(key)) {
+					var time = data[key]["time"];
+					var firstName = data[key]["firstName"];
+					var lastName = data[key]["lastName"];
+					var email = data[key]["email"];
+					var school = data[key]["school"];
+					var hearAbout = data[key]["hearAbout"];
+					var grade = data[key]["grade"];
+					var timesWhitney = data[key]["timesWhitney"];
+					var timesStudio = data[key]["timesStudio"];
 
-						var date = time.substr(0, time.indexOf(' '));
+					var date = time.substr(0, time.indexOf(' '));
 
-						$("#listTable tbody").prepend("<tr><td>" + time + "</td><td>" + firstName + "</td><td>" + lastName + "</td><td>" + email + "</td><td>" + school + "</td><td>" + hearAbout + "</td><td>" + grade + "</td><td>" + timesWhitney + "</td><td>" + timesStudio + "</td><td class='deleteUserTd'><button class='alert button small deleteUser' data-key='" + key + "'>Delete</button></td></tr>");
+					$("#listTable tbody").prepend("<tr><td>" + time + "</td><td>" + firstName + "</td><td>" + lastName + "</td><td>" + email + "</td><td>" + school + "</td><td>" + hearAbout + "</td><td>" + grade + "</td><td>" + timesWhitney + "</td><td>" + timesStudio + "</td><td class='deleteUserTd'><button class='alert button small deleteUser' data-key='" + key + "'>Delete</button></td></tr>");
 
-					}
 				}
-			});
+			}
+		});
 
 		$("#listModal").foundation("open");
 
@@ -345,7 +339,6 @@ $(document).ready(function() {
 			$("#logsTable tbody").empty();
 
 			if (typeof(Storage) !== "undefined") {
-
 				var deleteArray = [];
 
 				for (i = 0; i < localStorage.length; i++) {
@@ -357,7 +350,6 @@ $(document).ready(function() {
 						// Add the item to be cleared
 						deleteArray.push(localStorage.key(i));
 					}
-
 				}
 
 				// Go through and delete everything that needs to be deleted. This has to come in a separate loop, because otherwise
@@ -384,7 +376,6 @@ $(document).ready(function() {
 			ref.child(user).set(null);
 			$(this).parents("tr").remove();
 		}
-
 	});
 
 	//
@@ -415,7 +406,6 @@ $(document).ready(function() {
 						tally[date] = 1;
 
 					}
-
 				}
 			}
 
@@ -457,7 +447,7 @@ $(document).ready(function() {
 					}
 				}
 
-  	});
+			});
 
 		$("#acronymsModal").foundation("open");
 
@@ -494,12 +484,8 @@ $(document).ready(function() {
 			$("#full").val("");
 
 			$("#acronymsTable tbody").append("<tr><td>" + short + "</td><td>" + full + "</td><td><button class='alert button small deleteAcronym' data-short='" + short + "'>Delete</button></td></tr>");
-
 		}
-
 	});
-
-
 }); // End ready
 
 
@@ -522,17 +508,14 @@ function processForm(e) {
 	var hearAbout = $("input[name='How did you hear about Open Studio for Teens?']:checked").val();
 	var grade = $("input[name='Grade']:checked").val();
 	var timesWhitney = $("input[name='How many times have you been to the Whitney?']:checked").val();
-	var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
-	// Blank for event, or if this question shouldn't be asked
-	// var timesStudio = '';
+	// var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
+	// SWITCH for event
+	var timesStudio = '';
 
 	var zipcode = $("input[name='ZIP code']").val();
-
 	var emailValid = emailValidator(email);
 
 	// Validate
-	//if (firstName == '' || lastName == '' || email == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
-	// w/ ZIP code
 	if (firstName == '' || lastName == '' || email == '' || zipcode == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
 
 		console.log("Validation failed");
@@ -546,29 +529,15 @@ function processForm(e) {
 		showLoader(false);
 
 	} else {
-
 		// var userInfo = [time, firstName, lastName, email, school, hearAbout, grade, timesWhitney, timesStudio];
 		// w/ ZIP code
 		var userInfo = [time, firstName, lastName, email, zipcode, school, hearAbout, grade, timesWhitney, timesStudio];
-
 		
 		// If localstorage is available...
 		if (typeof(Storage) !== "undefined") {
 			// Store the entry here in case we're having internet issues
 			localStorage.setItem("openstudio" + time, JSON.stringify(userInfo));
 		}
-
-		// ref.push({
-		// 	time: time,
-		// 	firstName: firstName,
-		// 	lastName: lastName,
-		// 	email: email,
-		// 	school: school,
-		// 	hearAbout: hearAbout,
-		// 	grade: grade,
-		// 	timesWhitney: timesWhitney,
-		// 	timesStudio: timesStudio
-		// });
 
 		// w/ ZIP code
 		ref.push({
@@ -586,9 +555,7 @@ function processForm(e) {
 
 		// Push answers to google sheets
 		pushToGoogle(time);
-
 	}
-
 }
 
 //
@@ -598,16 +565,13 @@ function processForm(e) {
 // Push the form data to Google Sheets
 function pushToGoogle(time) {
 	console.log(time);
-	var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time;
-	// For special event
-	// var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time + "&How many times have you attended Open Studio?";
-
-	console.log(serializedData);
+	// var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time;
+	// SWITCH for event
+	var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time + "&How many times have you attended Open Studio?";
 
 	$.ajax({
 		// Special teen event // test ajax form
 		// url: "https://script.google.com/macros/s/AKfycbzP-0Yap6_ATFVXKyEubucQRmiI0E8hdSRLl8bocpLassYXr5Iy/exec",
-		// Regular whitney open studio form
 		url: "https://script.google.com/macros/s/AKfycbwn9UxQvWSfxuCj8wdP3WVgusPlWCfUYuSTKTOk40Brw3ceZiU/exec",
 		type: "post",
 		data: serializedData,

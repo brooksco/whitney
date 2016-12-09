@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <title>Open Studio for Teens Sign in Sheet</title> -->
-  <title>Spooky Halloween Sign in Sheet</title>
+  <title>Teen Event: Unravel</title>
   <link rel="stylesheet" href="css/app.css">
   <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 </head>
@@ -26,7 +26,7 @@
     <canvas id="wCanvas" width="300" height="450">
       <img id="whitneyLogo" src="img/weirdw.png">
     </canvas>
-    <h1 id="signInTitle">OPEN STUDIO FOR TEENS</h1>
+    <h1 id="signInTitle">TEEN EVENT: UNRAVEL</h1>
   </div>
 </div>
 
@@ -88,15 +88,15 @@
         <br>
         <input type="radio" name="How many times have you been to the Whitney?" value="Lots of times" id="lotsTimesWhitney"><label for="lotsTimesWhitney">Lots of times</label>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <!-- SWITCH for event -->
+      <!-- <fieldset class="fieldset">
         <legend>How many times have you attended Open Studio?</legend>
         <input type="radio" name="How many times have you attended Open Studio?" value="First time" id="firstTimeStudio" required><label for="firstTimeStudio">First time</label>
         <br>
         <input type="radio" name="How many times have you attended Open Studio?" value="A few times" id="fewTimesStudio"><label for="fewTimesStudio">A few times</label>
         <br>
         <input type="radio" name="How many times have you attended Open Studio?" value="Lots of times" id="lotsTimesStudio"><label for="lotsTimesStudio">Lots of times</label>
-      </fieldset>
+      </fieldset> -->
 
       <div data-abide-error class="alert callout" style="display: none;">
         <p>
@@ -195,13 +195,6 @@
 <!-- Teens modal -->
 <div class="reveal full" id="listModal" data-reveal data-close-on-click="true" data-v-offset="24">
   <h2>Teens</h2>
-
-<!--   <a class="export button small hollow success" download="data.csv" href="#" onclick="
-  $('.deleteUserTd').remove();
-  $('#exportAsterisk').css('display', 'inline-block');
-  return ExcellentExport.csv(this, 'listTable');
-  ">Export to CSV</a>
-  <label id="exportAsterisk">*All delete buttons temporarily removed for cleaner exporting</label> -->
 
   <table id="listTable" class="hover">
     <thead>
