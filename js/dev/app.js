@@ -496,20 +496,7 @@ $(document).ready(function() {
 // Process the form on submit
 function processForm(e) {
 	e.preventDefault();
-
 	showLoader(true);
-	console("here we go");
-	console.log(firstName == '');
-	console.log(lastName == '');
-	console.log(email == '') 
-	console.log(zipcode == '');
-	console.log(school == '');
-	console.log(hearAbout == undefined);
-	console.log(grade == undefined);
-	console.log(timesWhitney == undefined);
-	console.log(timesStudio == undefined);
-	console.log(!emailValid);
-	console.log('end');
 
 	// Validate
 	if (firstName == '' || lastName == '' || email == '' || zipcode == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
