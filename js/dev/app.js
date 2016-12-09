@@ -12,9 +12,6 @@ refAcronym.on("value", function(snapshot) {
 	// Clear current acronyms
 	schoolAcronyms = {};
 
-	console.log("Acronyms");
-	console.log(snapshot.val());
-
 	var data = snapshot.val();
 
 	for (var key in data) {
@@ -26,8 +23,6 @@ refAcronym.on("value", function(snapshot) {
 			schoolAcronyms[short] = full;
 		}
 	}
-
-	console.log(schoolAcronyms);
 
 }, function (errorObject) {
 	console.log("The read failed: " + errorObject.code);
@@ -546,7 +541,6 @@ function processForm(e) {
 
 // Push the form data to Google Sheets
 function pushToGoogle(time) {
-	console.log(time);
 	// var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time;
 	// SWITCH for event
 	var serializedData = $("#whitneyForm").serialize() + "&Timestamp=" + time + "&How many times have you attended Open Studio?";
@@ -561,7 +555,6 @@ function pushToGoogle(time) {
 			0: function () {
 				// Even though Safari coming back as a 405/0, the post to Google Sheets was successful.
 				// Problem related to CORS, though it all actually works, and doesn't error in Chrome. So just ignore it.
-				console.log("0");
 
 				$("#thanksModal").foundation("open");
 				showLoader(false);
