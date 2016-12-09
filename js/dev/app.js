@@ -493,6 +493,24 @@ function processForm(e) {
 	e.preventDefault();
 	showLoader(true);
 
+	var time = getFormattedDate();
+	var firstName = $("input[name='First name']").val();
+	var lastName = $("input[name='Last name']").val();
+	var email = $("input[name='Email']").val();
+	var school = $("input[name='School/Organization/Other']").val();
+
+	var hearAbout = $("input[name='How did you hear about Open Studio for Teens?']:checked").val();
+	var grade = $("input[name='Grade']:checked").val();
+	var timesWhitney = $("input[name='How many times have you been to the Whitney?']:checked").val();
+	// var timesStudio = $("input[name='How many times have you attended Open Studio?']:checked").val();
+	// Blank for event, or if this question shouldn't be asked
+	var timesStudio = '';
+
+	var zipcode = $("input[name='ZIP code']").val();
+
+	var emailValid = emailValidator(email);
+
+
 	// Validate
 	if (firstName == '' || lastName == '' || email == '' || zipcode == '' || school == '' || hearAbout == undefined || grade == undefined || timesWhitney == undefined || timesStudio == undefined || !emailValid) {
 		console.log("Validation failed");
